@@ -1,0 +1,173 @@
+; Vamos implementar um pagina web responsiva para realizar consulta de serviços de profissionais de saúde.
+; 1. APRESENTAÇÃO DA TEMÁTICA A aplicação "ComfortAid" está situada na área de bem-estar e saúde, mais especificamente no segmento de massagem terapêutica e estética. A temática surge como uma oportunidade para o desenvolvimento de uma aplicação devido à crescente demanda por serviços que proporcionem conforto, conveniência e cuidados pessoais
+; individualizados.
+; 2. OBJETIVOS
+; Os objetivos da aplicação "ComfortAid" são: Facilitar o acesso dos clientes a profissionais qualificados que realizam atendimento
+; domiciliar de massagem terapêutica e estética. Proporcionar uma experiência personalizada, permitindo que os clientes selecionem
+; os serviços desejados de forma intuitiva e conveniente através de um aplicativo móvel. Permitir que os clientes pesquisem e selecionem os profissionais com base em sua
+; localização, preferências e necessidades especificas.
+; 3. JUSTIFICAVA A aplicação "ComfortAid" foi idealizada para solucionar o problema enfrentado por muitas pessoas que buscam tratamentos de massagem terapêutica e estética, mas encontram dificuldades de acesso a esses serviços, especialmente após procedimentos cirúrgicos estéticos ou devido a restrições de mobilidade. Acreditamos que ao disponibilizar uma plataforma que conecta clientes a profissionais qualificados, podemos facilitar o acesso a esses serviços, promovendo o bem-estar e a
+; recuperação dos indivíduos de forma mais conveniente e confortável. E também oferecer uma plataforma inclusiva, na qual profissionais com conhecimentos tradicionais populares, como parteiras, benzedeiras, curandeiras e
+; outros, tenham acesso a uma melhor divulgação de seus trabalhos e serviços.
+; Vamos utilizar as melhores práticas de desenvolvimento, bootstrap, SPA, PWA e axios para consumir a API.
+; A pagina deve apresentar uma lista de serviços disponibilizada pelos profissionais, com a possibilidade de filtrar por nome do serviço, nome do profissional e especialidade. Ao clicar no servicó deve abrir uma pagina com os detalhes do serviço e a possibilidade de agendar um horário.
+; A API foi desenvolvida em Java com Spring Boot e banco de dados H2 e esta disponibilizada:
+; URL:
+; http://localhost:8080/api/servicos
+; resposta:
+; [
+;     {
+;         "id": 1,
+;         "nome": "Massagem Relaxante",
+;         "descricao": "Sessão de massagem para aliviar o estresse e tensões",
+;         "preco": 120.0,
+;         "duracao": 60,
+;         "situacao": "ATIVO",
+;         "dataDisponivel": "2025-01-12",
+;         "profissional": {
+;             "id": 1,
+;             "nome": "Dany Damaris",
+;             "email": "dany@example.com",
+;             "senha": "senha3333",
+;             "telefone": "(31) 97777-0003",
+;             "cep": "88333-333",
+;             "numeroEndereco": "003",
+;             "complementoEndereco": "Sala 3",
+;             "especialidade": "Massoterapia",
+;             "registroProfissional": "REG33333"
+;         }
+;     }
+; ]
+
+; URL:
+; http://localhost:8080/api/profissionais
+; resposta:
+; [
+;     {
+;         "id": 1,
+;         "nome": "Dany Damaris",
+;         "email": "dany@example.com",
+;         "senha": "senha3333",
+;         "telefone": "(31) 97777-0003",
+;         "cep": "88333-333",
+;         "numeroEndereco": "003",
+;         "complementoEndereco": "Sala 3",
+;         "especialidade": "Massoterapia",
+;         "registroProfissional": "REG33333"
+;     }
+; ]
+; URL:
+; http://localhost:8080/api/clientes
+; resposta:
+; [
+;     {
+;         "id": 1,
+;         "nome": "Ana Amalia",
+;         "email": "ana@example.com",
+;         "senha": "senha1111",
+;         "telefone": "(11) 99999-0001",
+;         "cep": "88111-111",
+;         "numeroEndereco": "001",
+;         "complementoEndereco": "Apto 101",
+;         "cpf": "11111111111"
+;     }
+; ]
+; URL:
+; http://localhost:8080/api/agendamentos
+; resposta:
+
+; [
+;     {
+;         "id": 1,
+;         "cliente": {
+;             "id": 1,
+;             "nome": "Ana Amalia",
+;             "email": "ana@example.com",
+;             "senha": "senha1111",
+;             "telefone": "(11) 99999-0001",
+;             "cep": "88111-111",
+;             "numeroEndereco": "001",
+;             "complementoEndereco": "Apto 101",
+;             "cpf": "11111111111"
+;         },
+;         "servico": {
+;             "id": 1,
+;             "nome": "Massagem Relaxante",
+;             "descricao": "Sessão de massagem para aliviar o estresse e tensões",
+;             "preco": 120.0,
+;             "duracao": 60,
+;             "situacao": "ATIVO",
+;             "dataDisponivel": "2025-01-12",
+;             "profissional": {
+;                 "id": 1,
+;                 "nome": "Dany Damaris",
+;                 "email": "dany@example.com",
+;                 "senha": "senha3333",
+;                 "telefone": "(31) 97777-0003",
+;                 "cep": "88333-333",
+;                 "numeroEndereco": "003",
+;                 "complementoEndereco": "Sala 3",
+;                 "especialidade": "Massoterapia",
+;                 "registroProfissional": "REG33333"
+;             }
+;         },
+;         "dataHora": "2024-01-12T10:00:00"
+;     }
+; ]
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ComfortAid</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-5">Serviços Disponíveis</h1>
+        <input type="text" id="search" class="form-control" placeholder="Buscar serviço ou profissional">
+        <div id="services" class="mt-3"></div>
+    </div>
+
+    <script>
+        document.getElementById('search').addEventListener('input', function() {
+            const query = this.value.toLowerCase();
+            const services = document.querySelectorAll('.service');
+            services.forEach(service => {
+                const name = service.querySelector('.service-name').textContent.toLowerCase();
+                const professional = service.querySelector('.service-professional').textContent.toLowerCase();
+                if (name.includes(query) || professional.includes(query)) {
+                    service.style.display = '';
+                } else {
+                    service.style.display = 'none';
+                }
+            });
+        });
+
+        axios.get('http://localhost:8080/api/servicos')
+            .then(response => {
+                const services = response.data;
+                const servicesContainer = document.getElementById('services');
+                services.forEach(service => {
+                    const serviceElement = document.createElement('div');
+                    serviceElement.classList.add('service', 'card', 'mb-3');
+                    serviceElement.innerHTML = `
+                        <div class="card-body">
+                            <h5 class="card-title service-name">${service.nome}</h5>
+                            <p class="card-text">${service.descricao}</p>
+                            <p class="card-text"><strong>Preço:</strong> R$${service.preco}</p>
+                            <p class="card-text"><strong>Duração:</strong> ${service.duracao} minutos</p>
+                            <p class="card-text service-professional"><strong>Profissional:</strong> ${service.profissional.nome}</p>
+                            <a href="detalhes.html?id=${service.id}" class="btn btn-primary">Ver detalhes</a>
+                        </div>
+                    `;
+                    servicesContainer.appendChild(serviceElement);
+                });
+            })
+            .catch(error => {
+                console.error('Erro ao buscar serviços:', error);
+            });
+    </script>
+</body>
+</html>

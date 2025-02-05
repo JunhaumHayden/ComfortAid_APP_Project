@@ -1,0 +1,230 @@
+header {
+    background-color: #222;
+    text-align: center;
+    padding: 1rem;
+    border-bottom: 2px solid #ff4081;
+    font-size: medium;
+}
+
+h4 {
+    font-size: 24px;
+    color: #4a7a8c;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+p {
+    color: red;
+}
+
+/* Ajuste da navegação para respeitar o fluxo da página */
+.navigation {
+    display: flex;
+    position: relative; /* Permite que os elementos abaixo sejam empurrados para baixo */
+    width: 100%;
+    bottom: auto;
+    z-index: 1; /* Garante que a navegação fique por cima dos cartões, se necessário */
+}
+nav button{
+    width: 33%;
+    height: 3em;
+    border-radius: 0 !important;
+    border: 2px solid red; 
+}
+/* Ajuste geral da tela */
+.tela {
+    min-height: 100vh; /* Garante altura mínima da tela */
+    background-color: lightgray;
+    padding: 3rem;
+}
+/* Formata menu de nagevacao superior */
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    background-color: #444;
+    margin: 0;
+    font-size: medium;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+/*Alterar a cor dos elementos do menu de navegaçao ao passar o mouse*/
+nav ul li a:hover {
+    color: rgb(177, 174, 174);
+    text-decoration: none;
+}
+
+body {
+    background: gainsboro;
+    font-family: sans-serif;
+    font-size: 1.5rem; 
+    /* uso de ‘rem’ no tamanho da fonte, esta unidade é ‘relativa’ e indicada para uso em interfaces responsivas */
+    font-weight: bold;
+    margin: 0;
+    padding: 0;
+ }
+
+ /* header {
+    background-color: #222;
+    padding: 20px;
+    text-align: center;
+    border-bottom: 4px solid #ff4081;
+ } */
+ 
+ header{
+    background-color: black; /* Cor de fundo*/
+    color: gainsboro; /* Cor do Texto*/
+    width: 100%; /* Ocupa toda a largura da tela*/
+    display: flex; /* Define que o elemento é flex*/
+    justify-content: space-evenly; /* Distribui o espaço entre os filho de maneira igual*/
+    padding-left: 1rem; /* Espaçamento interna responsivo */
+ }
+
+  /* Ajuste dos cartões */
+ .painel-cartoes{
+    display: flex;
+    justify-content: space-evenly; /* Distribui o espaço entre os filho de maneira igual*/
+    flex-wrap: wrap; /* Permite que o flex defina o número de elementos por linha*/
+    gap: 1rem; /* Define o espaço entre os elementos filhos*/
+    padding: 1rem;
+    margin-bottom: 15rem;
+ }
+
+ .container-perfil-profissional {
+    
+    width: 100%; /* Ocupará toda a largura disponível */
+    max-width: none; /* Remove a limitação de largura máxima */
+    padding: 1rem; /* Adiciona espaçamento interno */
+    box-sizing: border-box; /* Inclui padding e borda no cálculo do tamanho */
+    margin: 0 auto; /* Centraliza o conteúdo */
+    background-color: #ffffff; /* Mantém as configurações existentes */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  
+    /* margin-top: 50px;
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 600px; */
+  }
+  .card {
+    background-color: #ffffff;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+  }
+  .card:hover {
+    transform: scale(1.02);
+  }
+  .card-title {
+    color: #2c3e50;
+  }
+  .card-text {
+    color: #34495e;
+  }
+  .price {
+    font-weight: bold;
+    color: #16a085;
+  }
+  .category {
+    font-size: 0.9em;
+    color: #7f8c8d;
+  }
+ 
+ .cartao {
+    width: 20rem; /*largura responsiva*/
+    height: 10rem; /*altura responsiva*/
+    background-color: gray;
+    border-radius: 10px;
+    display: flex; /* flex para os elementos internos */
+    flex-direction: column; /* elementos filho apresentados em coluna e não linha*/
+    gap: 1rem;
+    justify-content: center; /*filhos centralizados horizontalmente*/
+    align-items: center; /*filhos centralizados verticalmente*/
+    color: black;
+ }
+ /* Formata a galeria de cartoes */
+ .gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Centraliza as imagens */
+    gap: 20px; /* Espaçamento entre imagens */
+    padding: 20px; 
+ }
+ /* Galeria de cartões */
+
+ .gallery img {
+    width: 200px; /* Largura fixa para cada imagem */
+    height: 150px; /* Altura fixa para cada imagem */
+    object-fit: cover; /* Ajusta imagem dentro da área */
+    border-radius: 10px; /* Bordas arredondadas */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra leve */
+}
+footer{
+    border-top: #ff4081 solid;
+    background-color: black;
+    color: gainsboro;
+    width: 100%;
+     /* Use min-height para uma altura mínima que pode expandir com o conteúdo */
+     min-height: 4rem;
+    /* fixa o rodape na tela
+    position: fixed;  */
+    bottom: 0; 
+    display: flex;
+    /* Orientacao dos item do rodape */
+    flex-direction: row;
+    margin-top: 1rem; /* Adiciona espaçamento superior */
+ }
+
+ .footer-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: left; 
+    max-width: 1200px;
+    margin: 10 auto;
+    margin-top: 1rem;
+    font-size: x-small;
+    font-family: Droid;
+}
+
+.logo img {
+    max-width: 100%;
+    border-radius: 10px;
+    margin-left: 1rem;
+    
+
+}
+
+.info {
+    text-align: left;
+    margin-left: 10px;
+}
+
+.icons img {
+    margin-left: 10px;
+}
+
+@media (max-width: 768px) {
+    .footer-container {
+        /* flex-direction: row; */
+        flex-direction: column; /* Torna o layout mais responsivo */
+        text-align: center;
+        
+    }
+
+    .icons img {
+        margin: 10px 5px;
+    }
+}
+ 

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lista de Profissionais - Exemplo de Requisição com Axios</title>
+  
+  <!-- Importando o Bootstrap para estilização -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    /* Estilos personalizados */
+    body {
+      background-color: #f0f8ff;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    .container {
+      margin-top: 50px;
+      background-color: #ffffff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 600px;
+    }
+    .card {
+      background-color: #ffffff;
+      border: none;
+      border-radius: 15px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: transform 0.2s;
+    }
+    .card:hover {
+      transform: scale(1.02);
+    }
+    .card-title {
+      color: #2c3e50;
+    }
+    .card-text {
+      color: #34495e;
+    }
+    .price {
+      font-weight: bold;
+      color: #16a085;
+    }
+    .category {
+      font-size: 0.9em;
+      color: #7f8c8d;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Lista de Profissionais</h1>
+    <div class="row" id="produto-list"></div>
+    <div id="error-message" class="error-message"></div>
+      <!-- As descrições dos profissionais aparecerão aqui -->
+    </ul>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Importando a biblioteca Axios a partir de uma CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  
+  <script>
+    // Função para gerar o próximo nome de imagem com base na categoria e numeração
+    function gerarNomeImagem(categoria, numero) {
+      const prefixo = categoria.slice(0, 3).toLowerCase();
+      const numeroFormatado = String(numero).padStart(2, '0');
+      return `${prefixo}${numeroFormatado}.jpg`;
+    }
+
+    // Objeto para armazenar a contagem de imagens por categoria
+    const contadorImagens = {};
+
+    // Endpoint da API de produtos
+    const apiUrl = 'http://localhost:8081/produtos';
+
+    // Função para criar o card do produto
+    function criarCard(produto) {
+      const col = document.createElement('div');
+      col.className = 'col-md-4 mb-4';
+      const card = document.createElement('div');
+      card.className = 'card h-100';
+
+      // Verifica e incrementa o contador para a categoria atual
+      const categoria = produto.categoria.descricao;
+      if (!contadorImagens[categoria]) {
+        contadorImagens[categoria] = 1;
+      } else {
+        contadorImagens[categoria]++;
+      }
+
+      // Gera o nome da imagem com base na categoria e contador
+      const nomeImagem = gerarNomeImagem(categoria, contadorImagens[categoria]);
+      const caminhoImagem = `../../icons/myitens/${nomeImagem}`;
+
+      // Cria e adiciona a imagem
+      const img = document.createElement('img');
+      img.src = caminhoImagem;
+      img.className = 'card-img-top';
+      img.alt = produto.descricao;
+
+      const cardBody = document.createElement('div');
+      cardBody.className = 'card-body d-flex flex-column';
+
+      const title = document.createElement('h5');
+      title.className = 'card-title';
+      title.textContent = produto.nome;
+
+      const categoriaText = document.createElement('p');
+      categoriaText.className = 'category';
+      categoriaText.textContent = 'Categoria: ' + produto.categoria.descricao;
+
+      const descricao = document.createElement('p');
+      descricao.className = 'card-text';
+      descricao.textContent = produto.descricao;
+
+      const preco = document.createElement('p');
+      preco.className = 'price';
+      preco.textContent = 'Preço: R$ ' + produto.preco.toFixed(2);
+
+      const button = document.createElement('a');
+      button.href = 'detalhes.html?id=' + produto.id;
+      button.className = 'btn btn-primary mt-auto';
+      button.textContent = 'Ver Detalhes';
+
+      cardBody.appendChild(title);
+      cardBody.appendChild(categoriaText);
+      cardBody.appendChild(descricao);
+      cardBody.appendChild(preco);
+      cardBody.appendChild(button);
+
+      card.appendChild(img);
+      card.appendChild(cardBody);
+      col.appendChild(card);
+
+      return col;
+    }
+
+    // Requisição GET com Axios
+    axios.get(apiUrl)
+      .then(response => {
+        const produtoList = document.getElementById('produto-list');
+        response.data.forEach(produto => {
+          const card = criarCard(produto);
+          produtoList.appendChild(card);
+        });
+      })
+      .catch(error => {
+        console.error('Erro:', error);
+        const errorMessage = document.getElementById('error-message');
+        errorMessage.textContent = 'Ocorreu um erro ao carregar os produtos. Tente novamente mais tarde.';
+      });
+  </script>
+</body>
+</html>
