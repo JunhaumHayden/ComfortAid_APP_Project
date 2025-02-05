@@ -1,1 +1,3 @@
 Alteração na branch02
+
+AQUI é a branch 2
