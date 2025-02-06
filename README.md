@@ -1,12 +1,12 @@
-# ConfortAid SPA Project
+# ConfortAid Project
 
-Bem-vindo ao projeto ConfortAid SPA! Este repositório contém o código-fonte e a documentação para o desenvolvimento do nosso sistema de gerenciamento de SPA.
+Bem-vindo ao projeto ConfortAid! Este repositório contém o código-fonte e a documentação para o desenvolvimento do sistema de gerenciamento de atendimento domiciliar de profissionais de saúde.
 
 
 ## Descrição
 
-O ConfortAid SPA é uma aplicação projetada para gerenciar as operações diárias de um SPA, incluindo agendamentos, gerenciamento de clientes, e serviços oferecidos.
-O projeto ComfortAid é uma aplicação móvel desenvolvida para fornecer assistência e conforto aos usuários em diversas situações. A aplicação oferece funcionalidades como...
+O ConfortAid é uma aplicação projetada para gerenciar as operações diárias de atendimentos de profissionais de saúde, incluindo pesquisa, agendamentos, gerenciamento de clientes, e serviços oferecidos.
+O projeto ComfortAid é uma aplicação SPA (Single Pages Aplication). A aplicação oferece funcionalidades como...
 
 ## Funcionalidades
 
@@ -24,11 +24,11 @@ O projeto ComfortAid é uma aplicação móvel desenvolvida para fornecer assist
 ## Função de Cada Arquivo
 
 - **comfortaid_profissional_show.html**: Arquivo principal da aplicação que inicializa o app e configura as rotas.
-- **comfortaid_profissional_env**: Contém as dependências e scripts do projeto.
+- **comfortaid_profissional_env**: Arquivo para efetuar o login de usuário e encaminhar para a área de usário.
 - **ind0101.html**: Arquivo HTML teste (deveria ter sido o index).
 - **/components**: Diretório que contém os componentes reutilizáveis da aplicação.
-    - **presentation.html**: Componente de cabeçalho da aplicação.
-    - **Footer.js**: Componente de rodapé da aplicação.
+    - **header.html**: Componente de cabeçalho da aplicação.
+    - **footer.js**: Componente de rodapé da aplicação.
 - **/assets**: Diretório que contém os componentes reutilizáveis da aplicação e os recursos estáticos como imagens e fontes.
     - **/css**: Arquivos de estilos CSS 
         - **style.css**: Arquivo CSS com os estilos principais da aplicação para a interface do usuário (principalmete os estilos para o header e footer).
@@ -43,8 +43,8 @@ O projeto ComfortAid é uma aplicação móvel desenvolvida para fornecer assist
 ├── comfortaid_profissional_env
 ├── ind0101.html
 ├── /components
-│   ├── Header.js
-│   └── Footer.js
+│   ├── header.js
+│   └── footer.js
 ├── /assets
 │   ├── css
 |   ├── html
