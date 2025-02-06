@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset='utf-8'>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ComfortAid Profissional</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <!-- ... -->
+    <link rel="shortcut icon" type="imagex/png" href="/PHP/assets/icon.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,300;1,200;1,400&family=Red+Hat+Display:wght@400;500;700&family=Roboto&display=swap"
+    rel="stylesheet">
+    <!-- ... -->
+    <link rel='stylesheet' type='text/css' media='screen' href='./assets/css/style.css'>
+    <!-- font-awesome -->
+    <link rel='stylesheet' type='text/css' media='screen'         
+            href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css'>
+        <!-- ... -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <style>
+        /* body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        } */
+        .container_inner {
+            display: flex;
+            justify-content: space-evenly; /* Distribui o espaço entre os filho de maneira igual*/
+            flex-wrap: wrap; /* Permite que o flex defina o número de elementos por linha*/
+            gap: 6rem; /* Define o espaço entre os elementos filhos*/
+            padding: 1rem;
+
+            margin-bottom: 15rem;
+            background-color: #f5f5f5;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            margin: 10rem;
+            
+            /* width: 100%;
+            max-width: 400px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+            border-radius: 8px; 
+            flex-direction: column;
+            align-items: center;
+            height: 100vh; */
+        }
+        .hidden {
+            display: none;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+        .form-group button {
+            width: 100%;
+            padding: 10px;
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .form-group button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    
+    <header>
+        <h1>🌐 ComfortAid 🐘</h1>
+    </header>
+     <!-- barra de navegacao da pagina -->
+    <nav>
+        <ul>
+            <li><a href="../../PHP/index.html">Início</a></li>
+            <li><a href="comfortaid_profissional_show.html">Voltar</a></li>
+            <li><a href="tel:+5548988900001">Contato</a></li>
+        </ul>
+    </nav>
+    <div class="container_inner">
+        <div id="login-page">
+            <h2>Login</h2>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Senha</label>
+                <input type="password" id="password" required>
+            </div>
+            <div class="form-group">
+                <button onclick="login()">Entrar</button>
+            </div>
+        </div>
+        <div id="professional-page" class="hidden">
+            
+             <!-- Botão para alternar a visibilidade -->
+            <nav class="navigation">
+                <button type="button" class="btn btn-primary" onclick="showSection('home')">
+                    <i class="fa-solid fa-home"></i>
+                    Home
+                </button>
+                <button type="button" class="btn btn-primary" onclick="showSection('update-data')">
+                    <i class="fa-solid fa-concierge-bell"></i>
+                    Atualizar Dados
+                </button>
+                <button type="button" class="btn btn-primary" onclick="showSection('new-service')">
+                    <i class="fa-solid fa-file"></i>
+                    Cadastrar Novo Serviço
+                </button>
+                <button type="button" class="btn btn-primary" onclick="showSection('Reviews')">
+                    <i class="fa-solid fa-star"></i>
+                    Avaliações
+                </button>
+            </nav>
+             <!-- Elemento que será alternado -->
+             <!-- Apresentacao Elemento Home -->
+            <div id="home" class="tela show">
+                <h3>HOME</h3>
+                <h2>Bem-vindo, <span id="professional-name"></span></h2>
+                <button onclick="showSection('update-data')">Atualizar Dados</button>
+                <button onclick="showSection('new-service')">Cadastrar Novo Serviço</button>
+            <!-- <button onclick="showSection('schedule')">Verificar Agenda</button> -->
+            <div id="update-data" class="hidden">
+                <h3>Atualizar Dados</h3>
+                <!-- Formulário para atualizar dados -->
+            </div>
+            <div id="new-service" class="hidden">
+                <h3>Cadastrar Novo Serviço</h3>
+                <!-- Formulário para cadastrar novo serviço -->
+            </div>
+            <h4>Agendamentos Programados</h4>
+                <div class="row" id="scheduled-appointments"></div>
+                <div id="error-message" class="error-message"></div>
+                <ul id="appointments-list"></ul>
+                <!-- Conteúdo da página de apresentação -->
+                <div id="presentation-content"></div>
+            </div>
+            
+            <div id="update-data" class="hidden">
+                <h3>Atualizar Dados</h3>
+                <!-- Formulário para atualizar dados -->
+            </div>
+    
+            <!-- Página de novo serviço -->
+            <div id="new-service" class="hidden">
+                <h3>Cadastrar Novo Serviço</h3>
+                <!-- Formulário para cadastrar novo serviço -->
+            </div>
+            
+             <!-- Apresentacao de Avaliacoes e parceiros do aplicativo-->
+            <div id="Reviews" class="tela collapse">
+                <h3>Avaliacoes</h3>
+                <section class="painel-cartoes">
+    
+                    <div class="cartao">
+                        <i class="fa-solid fa-folder"></i>
+                        <!-- elemnto <i> utilizado para inserir o icone do font-awesome. -->
+                            <a href="https://junhaumhayden.github.io/publish/">Landingpage</a>
+                    </div>
+    
+                    <div class="cartao">
+                        <i class="fa-solid fa-folder"></i>
+                            <a href="https://junhaumhayden.github.io/publish/gatinhos.html">Ver Gatinhos</a>
+                    </div>
+    
+                    <div class="cartao">
+                        <i class="fa-solid fa-folder"></i>
+                        <a href="https://junhaumhayden.github.io/publish/flexturismo.html">FlexTurismo</a>
+                    </div>
+    
+                    <div class="cartao">
+                        <i class="fa-solid fa-folder"></i>
+                        <a href="https://junhaumhayden.github.io/publish/contato.html">Deixe um comentário</a>
+                    </div>
+    
+                    <div class="cartao">
+                        <i class="fa-solid fa-folder"></i>
+                        <!-- elemnto <i> utilizado para inserir o icone do font-awesome. -->
+                        Um Cartão
+                    </div>
+                    <div class="cartao">
+                        <i class="fa-solid fa-folder"></i>
+                        <!-- elemnto <i> utilizado para inserir o icone do font-awesome. -->
+                        Oto Cartão
+                    </div>
+                    <div class="cartao">
+                        <i class="fa-solid fa-folder"></i>
+                        <!-- elemnto <i> utilizado para inserir o icone do font-awesome. -->
+                        Mais Oto Cartão
+                    </div>
+                    <div class="cartao">
+                        <i class="fa-solid fa-folder"></i>
+                        <!-- elemnto <i> utilizado para inserir o icone do font-awesome. -->
+                        Ultimo Cartão
+                    </div>
+                </section>
+            </div>
+            
+        </div>
+    </div>
+    <footer>
+        <div class="footer-container">
+            <div class="logo">
+                <img src="/PHP/assets/icons/icon36x36.ico" width="30" alt="Logo">
+            </div>
+            <div class="info">
+                <div>&copy; 2024 HTML / CSS / JavaScript / BootStrap</div>
+                <div>Desenvolvido por: Carlos Hayden Junior</div>
+            </div>
+            <div class="icons">
+                <img src="/PHP/assets/icons/icon-html5-48.png" width="20" alt="HTML Icon">
+                <img src="/PHP/assets/icons/icon-css3-48.ico" width="20" alt="CSS Icon">
+                <img src="/PHP/assets/icons/icons8-js-48.png" width="20" alt="JS Icon">
+            </div>
+        </div>
+        
+    </footer>
+    <script>
+        async function fetchAppointments(professionalId) {
+                    try {
+                        const response = await fetch(`http://localhost:5000/api/agendamentos/profissional/${professionalId}`);
+                        const appointments = await response.json();
+                        const appointmentsList = document.getElementById('appointments-list');
+                        appointmentsList.innerHTML = '';
+
+                        appointments.forEach(appointment => {
+                            const listItem = document.createElement('li');
+                            listItem.classList.add('appointment-card');
+                            listItem.innerHTML = `
+                                <h4>${appointment.servico.nome}</h4>
+                                <p>Cliente: ${appointment.cliente.nome}</p>
+                                <p>Data: ${new Date(appointment.dataHora).toLocaleString()}</p>
+                            `;
+                            listItem.onclick = () => showAppointmentDetails(appointment);
+                            appointmentsList.appendChild(listItem);
+                        });
+                    } catch (error) {
+                        console.error('Erro ao buscar agendamentos:', error);
+                        alert('Erro ao buscar agendamentos. Tente novamente mais tarde.');
+                    }
+                }
+
+                function showAppointmentDetails(appointment) {
+                    alert(`
+                        Serviço: ${appointment.servico.nome}
+                        Cliente: ${appointment.cliente.nome}
+                        Data: ${new Date(appointment.dataHora).toLocaleString()}
+                        Descrição: ${appointment.servico.descricao}
+                        Preço: R$${appointment.servico.preco}
+                        Duração: ${appointment.servico.duracao} minutos
+                    `);
+                }
+
+        async function authenticate(email, password) {
+            try {
+                const response = await fetch('http://localhost:5000/api/profissionais');
+                const professionals = await response.json();
+                const professional = professionals.find(prof => prof.email === email && prof.senha === password);
+
+                if (professional) {
+                    document.getElementById('login-page').classList.add('hidden');
+                    document.getElementById('professional-page').classList.remove('hidden');
+                    document.getElementById('professional-name').textContent = professional.nome;
+                    return professional;
+                } else {
+                    alert('Email ou senha incorretos');
+                    return null;
+                }
+            } catch (error) {
+                console.error('Erro ao autenticar:', error);
+                alert('Erro ao autenticar. Tente novamente mais tarde.');
+                return null;
+            }
+        }
+        // async function authenticate(email, password) {
+        //     try {
+        //     const response = await axios.get('http://localhost:5000/api/profissionais');
+        //     const professionals = response.data;
+        //     const professional = professionals.find(prof => prof.email === email && prof.senha === password);
+
+        //     if (professional) {
+        //         document.getElementById('login-page').classList.add('hidden');
+        //         document.getElementById('professional-page').classList.remove('hidden');
+        //         document.getElementById('professional-name').textContent = professional.nome;
+        //         return professional;
+        //     } else {
+        //         alert('Email ou senha incorretos');
+        //         return null;
+        //     }
+        //     } catch (error) {
+        //     console.error('Erro ao autenticar:', error);
+        //     alert('Erro ao autenticar. Tente novamente mais tarde.');
+        //     return null;
+        //     }
+        // }
+
+        function login() {
+            // Captura o valor do campo de email
+                    const email = document.getElementById('email').value;
+                    // Captura o valor do campo de senha
+                    const password = document.getElementById('password').value;
+                    // Chama a função authenticate passando o email e a senha
+                    authenticate(email, password).then(professional => {
+                        // Se a autenticação for bem-sucedida e retornar um profissional
+                        if (professional) {
+                            // Chama a função fetchAppointments passando o ID do profissional
+                            fetchAppointments(professional.id);
+                        }
+                    });
+                }
+
+
+        function showSection(sectionId) {
+            document.getElementById('update-data').classList.add('hidden');
+            document.getElementById('new-service').classList.add('hidden');
+            document.getElementById('home').classList.add('hidden');
+            document.getElementById('Reviews').classList.add('hidden');
+            document.getElementById(sectionId).classList.remove('hidden');
+        }
+
+        function navega(destino){
+                let telas = document.getElementsByClassName('tela')
+                Array.from(telas).forEach(element => {
+                    element.classList.remove('show')
+                    element.classList.add('collapse')
+                });
+                document.getElementById(destino).classList.remove('collapse')
+                document.getElementById(destino).classList.add('show')
+            }
+            // Carrega a apresentação ao abrir a aba Home
+            document.addEventListener('DOMContentLoaded', carregarApresentacao);
+            // Adiciona o evento de clique ao botão de serviços
+            document.querySelector('button[onclick="navega(\'services\')"]').addEventListener('click', carregarServicos);
+            // Adiciona o evento de clique ao botão de profissionais
+            document.querySelector('button[onclick="navega(\'profile\')"]').addEventListener('click', carregarProfissionais);
+    </script>
+</body>
+</html>
