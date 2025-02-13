@@ -74,6 +74,20 @@
             padding: 10px;
             text-align: center;
         }
+        .embed-responsive-16by9 {
+                    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+                    height: 0;
+                    overflow: hidden;
+                    position: relative;
+                    width: 100%;
+                }
+                .embed-responsive-16by9 iframe {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                }
        
     </style>
 </head>
@@ -88,10 +102,11 @@
                     <div class="card-body text-center text-md-center">
                         <h5 class="card-title">Seu aplicativo de conforto e bem-estar</h5>
                         <p class="card-text">
-                            ComfortAid é a estrela da conveniência, quebrando barreiras e abrindo um universo de serviços de bem-estar e estética só para você. Estamos modificando a cena da massagem terapêutica e estética, tornando-a acessível a todos, em todos os lugares.
+                            O ComfortAid é um aplicativo que conecta clientes que buscam massagens terapêuticas e estéticas com profissionais qualificados que oferecem esse serviço em domicílio.
+
+                            Se você quer relaxar, aliviar dores musculares ou simplesmente cuidar do seu bem-estar sem precisar sair de casa, o ComfortAid facilita esse processo, permitindo que você encontre e agende sessões com facilidade.
                         </p>
                     </div>
-                
             </div>
         </div>    
     </div>
@@ -99,6 +114,28 @@
         <h2>Recursos do Aplicativo</h2>
         <div class="features">
             <!-- Inicio dos cards -->
+            <div class="feature">
+                <div class="card mb-4">
+                    <div class="row no-gutters d-flex flex-wrap flex-md-nowrap align-items-center">
+                        <!-- Texto -->
+                        <div class="col-12 col-md-8">
+                            <div class="card-body text-center text-md-left">
+                                <h5 class="card-title">Veja nosso vídeo de apresentação</h5>
+                                <p class="card-text">
+                                    Assista ao vídeo para saber mais sobre como o ComfortAid pode ajudar você a encontrar o melhor serviço de massagem e estética no conforto da sua casa.
+                                </p>
+                            </div>
+                        </div>
+                        <!-- Vídeo (irá para cima em telas menores) -->
+                        <div class="col-12 col-md-4 text-center">
+                            <div class="embed-responsive embed-responsive-16by9">
+                                <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/NT38RAynvtM" allowfullscreen></iframe>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
             <div class="feature">
                 <div class="card mb-4">
                     <div class="row no-gutters d-flex flex-wrap flex-md-nowrap align-items-center">
@@ -110,11 +147,15 @@
                         <!-- Texto -->
                         <div class="col-12 col-md-8">
                             <div class="card-body text-center text-md-left">
-                                <h5 class="card-title">Aplicativo Móvel</h5>
+                                <h5 class="card-title">Como funciona?</h5>
                                 <p class="card-text">
-                                    Conforto e bem-estar na palma da sua mão. Acesse serviços de massagem e estética onde quer que você esteja.<br>
-                                    ComfortAid é a estrela da conveniência, quebrando barreiras e abrindo um universo de serviços de bem-estar e estética só para você. Estamos modificando a cena da massagem terapêutica e estética, tornando-a acessível a todos, em todos os lugares.
+                                    1 - Encontre um profissional: Pesquise por massagistas perto de você, veja suas especialidades e avaliações de outros clientes.<br>
+                                    2 - Escolha o serviço: Escolha o tipo de massagem que deseja (relaxante, terapêutica, estética etc.).<br>
+                                    3 - Agende um atendimento: Selecione a data e horário que funcionam melhor para você.<br>
+                                    4 - Receba o atendimento em casa: O profissional vai até você no horário marcado.<br>
+                                    5 - Avalie sua experiência: Depois do serviço, você pode deixar uma avaliação para ajudar outros clientes.
                                 </p>
+                                
                             </div>
                         </div>
                     </div>
@@ -180,61 +221,35 @@
                     </div>
                 </div>
             </div>
-
-
-
-            <!-- <div class="features">        
-                <div class="alinha-texto">
-                    <i class="fas fa-mobile-alt"></i>
-                    <h3>Aplicativo Móvel</h3>
-                    <p>Conforto e bem-estar na palma da sua mão. Acesse serviços de massagem e estética onde quer que você esteja.<br>
-                    ComfortAid é a estrela da conveniência, quebrando barreiras e abrindo um universo de serviços de bem-estar e estética só para você. Estamos modificando a cena da massagem terapêutica e estética, tornando-a acessível a todos, em todos os lugares.</p>
-                    <button type="button" class="btn btn-primary" onclick="navega('services')">
-                        Serviços
-                    </button>
-                    <button type="button" class="btn btn-secondary" onclick="navega('register')">
-                        Cadastro
-                    </button> 
-                </div>
-                <div class="col-md-4 d-flex justify-content-center align-items-center">
-                    <img src="./assets/img/icone192.png" class="card-img img-fluid" alt="ComfortAid" style="max-width: 100%; height: auto;">
-                </div>
-            </div>
-
+            
             <div class="feature">
-                <div class="col-md-4 d-flex justify-content-center align-items-center">
-                    <img src="./assets/img/comfortaid01.jpg" class="card-img img-fluid" alt="ComfortAid" style="max-width: 100%; height: auto;">
-                </div>
-                    <div class="alinha-texto">
-                        <i class="fas fa-bed"></i>
-                        <h3>Por que ComfortAid é ótimo para você?</h3>
-                        <p>Acreditamos firmemente que todo mundo merece ser mimado e cuidado. Conectamos você com profissionais altamente qualificados que dedicam seu tempo e habilidades para sua recuperação e conforto.</p>
+                <div class="card mb-4">
+                    <div class="row no-gutters d-flex flex-wrap flex-md-nowrap align-items-center">
+                        <!-- Texto -->
+                        <div class="col-12 col-md-8">
+                            <div class="card-body text-center text-md-left">
+                                <h5 class="card-title">Aplicativo Móvel</h5>
+                                <p class="card-text">
+                                    Conforto e bem-estar na palma da sua mão. Acesse serviços de massagem e estética onde quer que você esteja.<br>
+                                    ComfortAid é a estrela da conveniência, quebrando barreiras e abrindo um universo de serviços de bem-estar e estética só para você. Estamos modificando a cena da massagem terapêutica e estética, tornando-a acessível a todos, em todos os lugares.
+                                </p>
+                            </div>
                         </div>
+                        <!-- Texto -->
+                        <div class="col-12 col-md-8">
+                            <div class="card-body text-center text-md-left">
+                                <h5 class="card-title">O que torna o ComfortAid especial?</h5>
+                                <p class="card-text">
+                                    - Praticidade: Você agenda e recebe atendimento sem sair de casa.<br>
+                                    - Segurança: Profissionais cadastrados e com avaliações de outros clientes.<br>
+                                    - Variedade: Encontre diferentes tipos de massagens e profissionais especializados.<br>
+                                    - Inclusão: Além de massagistas, o ComfortAid também permite que profissionais com conhecimento tradicional, como parteiras e curandeiras, divulguem seus serviços.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-
-            <div class="feature">
-                <div class="alinha-texto">
-                    <i class="fas fa-user-friends"></i>
-                    <h3>Conexão com Profissionais</h3>
-                    <p>Conectamos você com profissionais altamente qualificados que dedicam seu tempo e habilidades para sua recuperação e conforto.</p>
-                    <p>Acreditamos firmemente que todo mundo merece ser mimado e cuidado.</p>
-                </div>
-                <div class="col-md-4 d-flex justify-content-center align-items-center">
-                    <img src="./assets/img/comfortaid02.jpg" class="card-img img-fluid" alt="ComfortAid" style="max-width: 50%; object-fit: cover; object-position: top; height: auto; ">
-                </div>
-                
-            </div>
-            <div class="feature">
-                <div class="col-md-4 d-flex justify-content-center align-items-center">
-                    <img src="./assets/img/comfortaid03.jpg" class="card-img img-fluid" alt="ComfortAid" style="max-width: 100%; height: auto;">
-                </div>
-                <div class="alinha-texto">
-                    <i class="fas fa-hand-holding-heart"></i>
-                    <h3>Acesso justo e inclusão para todos os profissionais</h3>
-                    <p>ComfortAid oferece uma maravilhosa plataforma de nicho para divulgar serviços especializados. Permitimos que curandeiros tradicionais, parteiras e outros exibam seu conhecimento e habilidades.</p>
-                    <p>Estamos modificando a cena da massagem terapêutica e estética, tornando-a acessível a todos, em todos os lugares.</p>
-                </div>
-            </div> -->
         </div>
     </div>
     <!-- Chamada para ação -->
