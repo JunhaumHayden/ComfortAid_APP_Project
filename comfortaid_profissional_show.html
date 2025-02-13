@@ -5,6 +5,9 @@
         <meta http-equiv='X-UA-Compatible' content='IE=edge'>
         <title>ComfortAid App</title>
         <meta name='viewport' content='width=device-width, initial-scale=1'>
+        <!-- referências ao manifesto -->
+   <link rel="manifest" href="./manifest.json">
+   <meta name="theme-color" content="#007bff">
         <!-- ... -->
         <link rel="shortcut icon" type="imagex/png" href="/PHP/assets/icon.ico">
         <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,300;1,200;1,400&family=Red+Hat+Display:wght@400;500;700&family=Roboto&display=swap"
@@ -40,7 +43,7 @@
                 <i class="fa-solid fa-concierge-bell"></i>
                 Serviços
             </button>
-            <button type="button" class="btn btn-primary" onclick="navega('profile')">
+            <button type="button" class="btn btn-primary" onclick="navega('profiles')">
                 <i class="fa-solid fa-file"></i>
                 Profissionais
             </button>
@@ -65,7 +68,7 @@
                     <button type="button" class="btn btn-primary mt-2" onclick="buscarServicos()">Buscar</button>
                 </div>
                 <h4>Lista de Serviços</h4>
-                <div class="row" id="service"></div>
+                <div class="row" id="service-list"></div>
                 <div id="error-message" class="error-message"></div>
             </div>
         </div>
@@ -91,12 +94,33 @@
                 <div id="schedule-message" class="mt-3"></div>
             </div>
         </div>
-            <!-- Apresentacao Elemento profile com axios-->
-        <div id="profile" class="tela collapse">
+            <!-- Apresentacao Elemento Profissional com axios-->
+        <div id="profiles" class="tela collapse">
             <div class="container-profile-profissional">
                 <h4>Lista de Perfis Profissionais</h4>
-                <div class="row" id="produto-list"></div>
+                <div class="row" id="profile-list"></div>
                 <div id="error-message" class="error-message"></div>
+            </div>
+        </div>
+        <!-- Página de detalhes do Profissional -->
+        <div id="profile-details" class="tela collapse">
+            <h3>Detalhes do Profissional</h3>
+            <div id="profile-details-content"></div>
+            <div id="schedule-form">
+                <h4>Agendar Serviço</h4>
+                <form id="agendamento-form">
+                    <div class="mb-3">
+                        <label for="cliente-id" class="form-label">ID do Cliente</label>
+                        <input type="number" class="form-control" id="cliente-id" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="data-hora" class="form-label">Data e Hora</label>
+                        <input type="datetime-local" class="form-control" id="data-hora" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Agendar</button>
+                    <button type="button" class="btn btn-secondary" onclick="navega('profiles')">Voltar</button>
+                </form>
+                <div id="schedule-message" class="mt-3"></div>
             </div>
         </div>
          <!-- Apresentacao de Avaliacoes e parceiros do aplicativo-->
@@ -173,8 +197,9 @@
         <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
         <script>
+            // Registrar o service worker
             if ('serviceWorker' in navigator) {
-              navigator.serviceWorker.register('/service-worker.js')
+              navigator.serviceWorker.register('./service-worker.js')
                 .then(() => console.log('Service Worker registrado com sucesso.'))
                 .catch(err => console.error('Erro ao registrar o Service Worker:', err));
             }
@@ -182,7 +207,7 @@
           
         <!-- Script para alternar a tela ativa -->
         <script>
-
+            // Função para buscar os serviços de acordo com o termo de busca (barra de busca)
             function buscarServicos() {
                 const query = document.getElementById('search-input').value.toLowerCase();
                 const apiServicosUrl = 'http://localhost:5000/api/servicos';
@@ -209,7 +234,7 @@
             }
             // Função para carregar o conteúdo da página de apresentação
             function carregarApresentacao() {
-                    const presentationUrl = './assets/html/presentation.html';
+                    const presentationUrl = './assets/html/show_comfortaid.html';
                     axios.get(presentationUrl)
                         .then(response => {
                             document.getElementById('presentation-content').innerHTML = response.data;
@@ -219,6 +244,7 @@
                             document.getElementById('presentation-content').innerHTML = 'Ocorreu um erro ao carregar a apresentação. Tente novamente mais tarde.';
                         });
                 }
+             
 
             // Função para carregar os detalhes do serviço ao clicar no card
             function carregarDetalhesServico(servicoId) {
@@ -271,6 +297,52 @@
                     });
             }
 
+            // Função para carregar os detalhes do profissional ao clicar no card
+            function carregarDetalhesProfissional(profissionalID) {
+                const apiProfissionalDetalhesUrl = `http://localhost:5000/api/profissionais/${profissionalID}`;
+                axios.get(apiProfissionalDetalhesUrl)
+                    .then(response => {
+                        const profissional = response.data;
+                        const detailsContent = `
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <h5>${profissional.nome}</h5>
+                                    <p>Especialidade: ${profissional.especialidade}</p>
+                                    <p>Registro Profissional: ${profissional.registroProfissional}</p>
+                                    <p>Contato:</p>
+                                    <p>Email: ${profissional.email}</p>
+                                    <p>Telefone: ${profissional.telefone}</p>
+                                </div>
+                                <div class="col-md-6" id="service-images">
+                                    <!-- Imagens serão carregadas aqui -->
+                                </div>
+                            </div>
+                            `;
+                        
+                        document.getElementById('service-details-content').innerHTML = detailsContent;
+
+                        const apiImagensUrl = `http://localhost:5000/api/imagens/profissional/${profissional.id}/fotos`;
+                        axios.get(apiImagensUrl)
+                            .then(response => {
+                                const serviceImages = document.getElementById('service-images');
+                                serviceImages.innerHTML = ''; // Limpa as imagens antes de adicionar novas
+                                response.data.forEach((imagem, index) => {
+                                    const img = document.createElement('img');
+                                    img.src = `data:image/png;base64,${imagem.foto}`;
+                                    img.className = 'img-fluid mb-2';
+                                    img.alt = `Imagem ${index}`;
+                                    serviceImages.appendChild(img);
+                                });
+                            })
+                            .catch(error => {
+                                console.error('Erro ao carregar as imagens:', error);
+                            });
+                    })
+                    .catch(error => {
+                        console.error('Erro ao carregar os detalhes do serviço:', error);
+                        document.getElementById('service-details-content').innerHTML = 'Ocorreu um erro ao carregar os detalhes do serviço. Tente novamente mais tarde.';
+                    });
+            }
             
 
             // Função para enviar o agendamento
@@ -296,106 +368,6 @@
                     });
             });
             
-            // // Função para criar o card do serviço
-            // function criarCardServico(servico) {
-            //     const col = document.createElement('div');
-            //     col.className = 'col-md-4 mb-4';
-            //     const card = document.createElement('div');
-            //     card.className = 'card h-100';
-
-            //     const cardBody = document.createElement('div');
-            //     cardBody.className = 'card-body d-flex flex-column';
-
-            //     const title = document.createElement('h5');
-            //     title.className = 'card-title';
-            //     title.textContent = servico.nome;
-
-            //     const descricao = document.createElement('p');
-            //     descricao.className = 'card-text';
-            //     descricao.textContent = servico.descricao;
-
-            //     const preco = document.createElement('p');
-            //     preco.className = 'price';
-            //     preco.textContent = 'Preço: R$ ' + servico.preco.toFixed(2);
-
-            //     const duracao = document.createElement('p');
-            //     duracao.className = 'duration';
-            //     duracao.textContent = 'Duração: ' + servico.duracao + ' minutos';
-
-            //     const profissional = document.createElement('p');
-            //     profissional.className = 'professional';
-            //     profissional.textContent = 'Profissional: ' + servico.profissional.nome;
-
-            //     cardBody.appendChild(title);
-            //     cardBody.appendChild(descricao);
-            //     cardBody.appendChild(preco);
-            //     cardBody.appendChild(duracao);
-            //     cardBody.appendChild(profissional);
-
-            //     card.dataset.servicoId = servico.id;
-            //     card.appendChild(cardBody);
-            //     col.appendChild(card);
-            //     // criar as imagens no card
-            //     const carousel = document.createElement('div');
-            //     carousel.id = `carousel-${servico.id}`;
-            //     carousel.className = 'carousel slide';
-            //     carousel.setAttribute('data-bs-ride', 'carousel');
-
-            //     const carouselInner = document.createElement('div');
-            //     carouselInner.className = 'carousel-inner';
-
-            //     const apiImagensUrl = `http://localhost:5000/api/imagens/profissional/${servico.profissional.id}/fotos`;
-
-            //     axios.get(apiImagensUrl)
-            //         .then(response => {
-            //             response.data.slice(1).forEach((imagem, index) => {
-            //                 const carouselItem = document.createElement('div');
-            //                 carouselItem.className = `carousel-item ${index === 0 ? 'active' : ''}`;
-
-            //                 const img = document.createElement('img');
-            //                 img.src = `data:image/png;base64,${imagem.foto}`;
-            //                 img.className = 'd-block w-100';
-            //                 img.alt = `Imagem ${index + 1}`;
-
-            //                 carouselItem.appendChild(img);
-            //                 carouselInner.appendChild(carouselItem);
-            //             });
-            //         })
-            //         .catch(error => {
-            //             console.error('Erro ao carregar as imagens:', error);
-            //         });
-
-            //     carousel.appendChild(carouselInner);
-
-            //     const prevButton = document.createElement('button');
-            //     prevButton.className = 'carousel-control-prev';
-            //     prevButton.type = 'button';
-            //     prevButton.setAttribute('data-bs-target', `#carousel-${servico.id}`);
-            //     prevButton.setAttribute('data-bs-slide', 'prev');
-            //     prevButton.innerHTML = `
-            //         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            //         <span class="visually-hidden">Previous</span>
-            //     `;
-
-            //     const nextButton = document.createElement('button');
-            //     nextButton.className = 'carousel-control-next';
-            //     nextButton.type = 'button';
-            //     nextButton.setAttribute('data-bs-target', `#carousel-${servico.id}`);
-            //     nextButton.setAttribute('data-bs-slide', 'next');
-            //     nextButton.innerHTML = `
-            //         <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            //         <span class="visually-hidden">Next</span>
-            //     `;
-
-            //     carousel.appendChild(prevButton);
-            //     carousel.appendChild(nextButton);
-
-            //     cardBody.appendChild(carousel);
-
-            //     return col;
-                
-            // }
-
             // Função para criar o card do serviço
             function criarCardServico(servico) {
                 const col = document.createElement('div');
@@ -418,7 +390,7 @@
 
                 axios.get(apiImagensUrl)
                     .then(response => {
-                        response.data.forEach((imagem, index) => {
+                        response.data.slice(1).forEach((imagem, index) => {
                             const carouselItem = document.createElement('div');
                             carouselItem.className = `carousel-item ${index === 0 ? 'active' : ''}`;
 
@@ -434,6 +406,8 @@
                     .catch(error => {
                         console.error('Erro ao carregar as imagens:', error);
                     });
+                    
+
 
                 carousel.appendChild(carouselInner);
 
@@ -500,7 +474,7 @@
             const apiServicosUrl = 'http://localhost:5000/api/servicos';
                 axios.get(apiServicosUrl)
                     .then(response => {
-                        const serviceList = document.getElementById('service');
+                        const serviceList = document.getElementById('service-list');
                         serviceList.innerHTML = ''; // Limpa a lista antes de adicionar novos itens
                         response.data.forEach(servico => {
                             const card = criarCardServico(servico);
@@ -514,7 +488,7 @@
                     });
             }
 
-            //Função para criar o card do profissional
+            // Função para criar o card do profissional
             function criarCardProfissional(profissional) {
                 const col = document.createElement('div');
                 col.className = 'col-md-4 mb-4';
@@ -524,8 +498,26 @@
                 const cardBody = document.createElement('div');
                 cardBody.className = 'card-body d-flex flex-column';
 
+                const apiImagemUrl = `http://localhost:5000/api/imagens/profissional/${profissional.id}/foto`;
+
+                const img = document.createElement('img');
+                img.className = 'card-img-top';
+                img.alt = `Imagem de ${profissional.nome}`;
+
+                axios.get(apiImagemUrl, { responseType: 'blob' })
+                    .then(response => {
+                        const reader = new FileReader();
+                        reader.onload = function(e) {
+                            img.src = e.target.result;
+                        };
+                        reader.readAsDataURL(response.data);
+                    })
+                    .catch(error => {
+                        console.error('Erro ao carregar a imagem do profissional:', error);
+                    });
+
                 const title = document.createElement('h5');
-                title.className = 'card-title';
+                title.className = 'card-title mt-3';
                 title.textContent = profissional.nome;
 
                 const especialidade = document.createElement('p');
@@ -538,13 +530,15 @@
 
                 const contato = document.createElement('p');
                 contato.className = 'contact';
-                contato.textContent = 'Contato: ' + profissional.contato;
+                contato.textContent = 'Contato: ' + profissional.email;
 
                 cardBody.appendChild(title);
                 cardBody.appendChild(especialidade);
                 cardBody.appendChild(experiencia);
                 cardBody.appendChild(contato);
 
+                card.dataset.profissionalId = profissional.id;
+                card.appendChild(img);
                 card.appendChild(cardBody);
                 col.appendChild(card);
 
@@ -557,7 +551,7 @@
 
                 axios.get(apiProfissionaisUrl)
                     .then(response => {
-                        const profissionalList = document.getElementById('produto-list');
+                        const profissionalList = document.getElementById('profile-list');
                         profissionalList.innerHTML = ''; // Limpa a lista antes de adicionar novos itens
                         response.data.forEach(profissional => {
                             const card = criarCardProfissional(profissional);
@@ -586,10 +580,10 @@
             // Adiciona o evento de clique ao botão de serviços
             document.querySelector('button[onclick="navega(\'services\')"]').addEventListener('click', carregarServicos);
             // Adiciona o evento de clique ao botão de profissionais
-            document.querySelector('button[onclick="navega(\'profile\')"]').addEventListener('click', carregarProfissionais);
+            document.querySelector('button[onclick="navega(\'profiles\')"]').addEventListener('click', carregarProfissionais);
             
             // Adiciona o evento de clique aos cards de serviço
-            document.getElementById('service').addEventListener('click', function(event) {
+            document.getElementById('service-list').addEventListener('click', function(event) {
                 const card = event.target.closest('.card');
                 if (card) {
                     if (!card.dataset.servicoId) {
@@ -601,6 +595,21 @@
                     navega('service-details');
                 }
             });
+
+            // Adiciona o evento de clique aos cards de profissional
+            document.getElementById('profile-list').addEventListener('click', function(event) {
+                const card = event.target.closest('.card');
+                if (card) {
+                    if (!card.dataset.profissionalId) {
+                        console.error('ID do profissional não encontrado no card.');
+                        return;
+                    }
+                    const profissionalId = card.dataset.profissionalId;
+                    carregarDetalhesProfissional(profissionalId);
+                    navega('profile-details');
+                }
+            });
+
   
         </script>
     </body>

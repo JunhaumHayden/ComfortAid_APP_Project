@@ -33,7 +33,7 @@ nav button{
 /* Ajuste geral da tela */
 .tela {
     min-height: 100vh; /* Garante altura mínima da tela */
-    background-color: lightgray;
+    background-color: #90A4AE;
     padding: 3rem;
 }
 /* Formata menu de nagevacao superior */
@@ -62,7 +62,7 @@ nav ul li a:hover {
 }
 
 body {
-    background: gainsboro;
+    background: rgb(225, 223, 223);
     font-family: sans-serif;
     font-size: 1.5rem; 
     /* uso de ‘rem’ no tamanho da fonte, esta unidade é ‘relativa’ e indicada para uso em interfaces responsivas */
@@ -140,6 +140,13 @@ body {
     font-size: 0.9em;
     color: #7f8c8d;
   }
+  .card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centraliza verticalmente */
+    align-items: center; /* Centraliza horizontalmente */
+    text-align: center; /* Garante que o texto fique centralizado */
+}
  
  .cartao {
     width: 20rem; /*largura responsiva*/
@@ -225,6 +232,33 @@ footer{
 
     .icons img {
         margin: 10px 5px;
+    }
+
+
+
+    .features {
+        display: block;
+        /* display: flex; */
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+    .feature {
+        display: flex;
+        width: 100%;
+        margin-bottom: 20px;
+        margin-top: 10px;
+        margin-right: 10px;
+        margin-left: 10px;
+        background: white;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        text-align: center;
+    }
+    .feature i {
+        font-size: 20px; /* Adjust the size as needed */
+        margin-bottom: 10px;
+        color: #4CAF50;
     }
 }
  

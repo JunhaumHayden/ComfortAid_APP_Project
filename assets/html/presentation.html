@@ -14,29 +14,57 @@
         }
         .header {
             background: #4CAF50;
-            color: white;
+            color: rgb(220, 219, 219);
             padding: 20px;
+            text-align: center;
+            border-radius: 10px;
+        }
+        .header .card {
+            background: #4CAF50;
+            color: rgb(232, 230, 230);
+        }
+        .card-body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center; /* Garante que o texto fique centralizado */
+        }
+        .feature .col-12.col-md-8 {
+            display: flex;
+            flex-direction: column;
+            justify-content: center; /* Centraliza verticalmente */
+            align-items: center; /* Centraliza horizontalmente */
             text-align: center;
         }
         .container {
             padding: 20px;
         }
+        .features .card {
+            background: #bff1c151;
+            color: rgb(47, 45, 45);
+        }
         .features {
-            display: flex;
+            display: block;
+            /* display: flex; */
             flex-wrap: wrap;
             justify-content: space-around;
         }
         .feature {
-            background: white;
-            border-radius: 10px;
+            display: flex;
+            width: 100%;
+            margin-bottom: 20px;
+            margin-top: 10px;
+            margin-right: 10px;
+            margin-left: 10px;
+            background: rgba(173, 235, 146, 0.235);
+            border-radius: 20px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            margin: 10px;
             padding: 20px;
             text-align: center;
-            width: 300px;
         }
         .feature i {
-            font-size: 50px;
+            font-size: 20px; /* Adjust the size as needed */
             margin-bottom: 10px;
             color: #4CAF50;
         }
@@ -46,35 +74,187 @@
             padding: 10px;
             text-align: center;
         }
+       
     </style>
 </head>
 <body>
     <div class="header">
         <h1>Bem-vindo ao ComfortAid</h1>
-        <p>Seu aplicativo de conforto e bem-estar</p>
+        
+        <div class="card mb-4">
+            <div class="row no-gutters d-flex flex-wrap flex-md-nowrap align-items-center">
+                <!-- Texto -->
+                
+                    <div class="card-body text-center text-md-center">
+                        <h5 class="card-title">Seu aplicativo de conforto e bem-estar</h5>
+                        <p class="card-text">
+                            ComfortAid é a estrela da conveniência, quebrando barreiras e abrindo um universo de serviços de bem-estar e estética só para você. Estamos modificando a cena da massagem terapêutica e estética, tornando-a acessível a todos, em todos os lugares.
+                        </p>
+                    </div>
+                
+            </div>
+        </div>    
     </div>
     <div class="container">
         <h2>Recursos do Aplicativo</h2>
         <div class="features">
+            <!-- Inicio dos cards -->
             <div class="feature">
-                <i class="fas fa-heartbeat"></i>
-                <h3>Monitoramento de Saúde</h3>
-                <p>Acompanhe seus sinais vitais e mantenha-se saudável.</p>
+                <div class="card mb-4">
+                    <div class="row no-gutters d-flex flex-wrap flex-md-nowrap align-items-center">
+                        <!-- Imagem (irá para cima em telas menores) -->
+                        <div class="col-12 col-md-4 text-center">
+                            <img src="./assets/img/icone192.png" class="card-img img-fluid" alt="ComfortAid" style="max-width: 100%; height: auto;">
+                        </div>
+                
+                        <!-- Texto -->
+                        <div class="col-12 col-md-8">
+                            <div class="card-body text-center text-md-left">
+                                <h5 class="card-title">Aplicativo Móvel</h5>
+                                <p class="card-text">
+                                    Conforto e bem-estar na palma da sua mão. Acesse serviços de massagem e estética onde quer que você esteja.<br>
+                                    ComfortAid é a estrela da conveniência, quebrando barreiras e abrindo um universo de serviços de bem-estar e estética só para você. Estamos modificando a cena da massagem terapêutica e estética, tornando-a acessível a todos, em todos os lugares.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>   
+            <div class="feature">
+                <div class="card mb-4">
+                    <div class="row no-gutters d-flex flex-wrap flex-md-nowrap align-items-center">
+                        <!-- Texto -->
+                        <div class="col-12 col-md-8">
+                            <div class="card-body text-center text-md-left">
+                                <h5 class="card-title">Por que ComfortAid é ótimo para você?</h5>
+                                <p class="card-text">
+                                    Acreditamos firmemente que todo mundo merece ser mimado e cuidado. Conectamos você com profissionais altamente qualificados que dedicam seu tempo e habilidades para sua recuperação e conforto.
+                                </p>
+                            </div>
+                        </div>
+                        <!-- Imagem (irá para cima em telas menores) -->
+                        <div class="col-12 col-md-4 text-center">
+                            <img src="./assets/img/comfortaid01.jpg" class="card-img img-fluid" alt="ComfortAid" style="max-width: 50%; height: auto;">
+                        </div>
+                    </div>
+                </div>
+            </div> 
+
+            <div class="feature">
+                <div class="card mb-4">
+                    <div class="row no-gutters d-flex flex-wrap flex-md-nowrap align-items-center">
+                        
+                        <!-- Imagem (irá para cima em telas menores) -->
+                        <div class="col-12 col-md-4 text-center">
+                            <img src="./assets/img/comfortaid02.jpg" class="card-img img-fluid" alt="ComfortAid" style="max-width: 50%; height: auto;">
+                        </div>
+                        <!-- Texto -->
+                        <div class="col-12 col-md-8">
+                            <div class="card-body text-center text-md-left">
+                                <h5 class="card-title">Conexão com Profissionais</h5>
+                                <p class="card-text">
+                                    Conectamos você com profissionais altamente qualificados que dedicam seu tempo e habilidades para sua recuperação e conforto.<br>Acreditamos firmemente que todo mundo merece ser mimado e cuidado.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+
+            <div class="feature">
+                <div class="card mb-4">
+                    <div class="row no-gutters d-flex flex-wrap flex-md-nowrap align-items-center">
+                        <!-- Texto -->
+                        <div class="col-12 col-md-8">
+                            <div class="card-body text-center text-md-left">
+                                <h5 class="card-title">Acesso justo e inclusão para todos os profissionais</h5>
+                                <p class="card-text">
+                                    ComfortAid oferece uma maravilhosa plataforma de nicho para divulgar serviços especializados. Permitimos que curandeiros tradicionais, parteiras e outros exibam seu conhecimento e habilidades.<br>Estamos modificando a cena da massagem terapêutica e estética, tornando-a acessível a todos, em todos os lugares.
+                                </p>
+                            </div>
+                        </div>
+                        <!-- Imagem (irá para cima em telas menores) -->
+                        <div class="col-12 col-md-4 text-center">
+                            <img src="./assets/img/comfortaid03.jpg" class="card-img img-fluid" alt="ComfortAid" style="max-width: 50%; height: auto;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <!-- <div class="features">        
+                <div class="alinha-texto">
+                    <i class="fas fa-mobile-alt"></i>
+                    <h3>Aplicativo Móvel</h3>
+                    <p>Conforto e bem-estar na palma da sua mão. Acesse serviços de massagem e estética onde quer que você esteja.<br>
+                    ComfortAid é a estrela da conveniência, quebrando barreiras e abrindo um universo de serviços de bem-estar e estética só para você. Estamos modificando a cena da massagem terapêutica e estética, tornando-a acessível a todos, em todos os lugares.</p>
+                    <button type="button" class="btn btn-primary" onclick="navega('services')">
+                        Serviços
+                    </button>
+                    <button type="button" class="btn btn-secondary" onclick="navega('register')">
+                        Cadastro
+                    </button> 
+                </div>
+                <div class="col-md-4 d-flex justify-content-center align-items-center">
+                    <img src="./assets/img/icone192.png" class="card-img img-fluid" alt="ComfortAid" style="max-width: 100%; height: auto;">
+                </div>
+            </div>
+
+            <div class="feature">
+                <div class="col-md-4 d-flex justify-content-center align-items-center">
+                    <img src="./assets/img/comfortaid01.jpg" class="card-img img-fluid" alt="ComfortAid" style="max-width: 100%; height: auto;">
+                </div>
+                    <div class="alinha-texto">
+                        <i class="fas fa-bed"></i>
+                        <h3>Por que ComfortAid é ótimo para você?</h3>
+                        <p>Acreditamos firmemente que todo mundo merece ser mimado e cuidado. Conectamos você com profissionais altamente qualificados que dedicam seu tempo e habilidades para sua recuperação e conforto.</p>
+                        </div>
+            </div>
+
+            <div class="feature">
+                <div class="alinha-texto">
+                    <i class="fas fa-user-friends"></i>
+                    <h3>Conexão com Profissionais</h3>
+                    <p>Conectamos você com profissionais altamente qualificados que dedicam seu tempo e habilidades para sua recuperação e conforto.</p>
+                    <p>Acreditamos firmemente que todo mundo merece ser mimado e cuidado.</p>
+                </div>
+                <div class="col-md-4 d-flex justify-content-center align-items-center">
+                    <img src="./assets/img/comfortaid02.jpg" class="card-img img-fluid" alt="ComfortAid" style="max-width: 50%; object-fit: cover; object-position: top; height: auto; ">
+                </div>
+                
             </div>
             <div class="feature">
-                <i class="fas fa-bed"></i>
-                <h3>Qualidade do Sono</h3>
-                <p>Monitore e melhore a qualidade do seu sono.</p>
-            </div>
-            <div class="feature">
-                <i class="fas fa-walking"></i>
-                <h3>Atividades Físicas</h3>
-                <p>Registre suas atividades físicas diárias.</p>
-            </div>
+                <div class="col-md-4 d-flex justify-content-center align-items-center">
+                    <img src="./assets/img/comfortaid03.jpg" class="card-img img-fluid" alt="ComfortAid" style="max-width: 100%; height: auto;">
+                </div>
+                <div class="alinha-texto">
+                    <i class="fas fa-hand-holding-heart"></i>
+                    <h3>Acesso justo e inclusão para todos os profissionais</h3>
+                    <p>ComfortAid oferece uma maravilhosa plataforma de nicho para divulgar serviços especializados. Permitimos que curandeiros tradicionais, parteiras e outros exibam seu conhecimento e habilidades.</p>
+                    <p>Estamos modificando a cena da massagem terapêutica e estética, tornando-a acessível a todos, em todos os lugares.</p>
+                </div>
+            </div> -->
         </div>
     </div>
-    <div class="footer">
-        <p>&copy; 2023 ComfortAid. Todos os direitos reservados.</p>
+    <!-- Chamada para ação -->
+    <div class="text-center mt-5">
+        <h2>Pronto para sentir o toque da magia ComfortAid?</h2>
+        <button type="button" class="btn btn-primary" onclick="navega('services')">
+            Serviços
+        </button>
+        <button type="button" class="btn btn-secondary" onclick="navega('register')">
+            Cadastro
+        </button>
     </div>
+    <!-- <div class="footer">
+        <p>&copy; 2023 ComfortAid. Todos os direitos reservados.</p>
+    </div> -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
+
+
+
