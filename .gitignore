@@ -406,6 +406,6 @@ FodyWeavers.xsd
 .idea
 
 # Diretórios
-img/
+
 vendor/
 /vendor/
