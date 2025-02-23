@@ -16,40 +16,102 @@ p {
     color: rgb(239, 22, 22);
 }
 
+/* A .ad-section foi estilizada para ter uma largura fixa de 300px, e um fundo levemente diferente para destacar os anúncios.*/
+/* .ad-section {
+    width: 200px;
+    padding: 20px;
+    background-color: #afaaaa;
+    border: 1px solid #ff4081;
+} */
+
+/* Estilos para a seção de anúncios */
+.ad-section {
+    width: 300px; /* Largura fixa para a seção */
+    padding: 15px;
+    background-color: #a1cac2;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-left: 20px; /* Espaçamento à esquerda */
+}
+.ad-sections {
+    width: 300px; /* Largura fixa para a seção */
+    padding: 15px;
+    background-color: #c1ede500;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-left: 20px; /* Espaçamento à esquerda */
+}
+
+
+.ad-section h2 {
+    text-align: center;
+    margin-bottom: 15px;
+    font-size: 1.5em;
+    color: #333;
+}
+
+/* Estilos para a lista de anúncios */
+.ad-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Espaçamento entre os cards */
+}
+
+/* Estilos para cada card de anúncio */
+.ad-card {
+    width: 100%;
+    background-color: #e6e8e1;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    text-align: center;
+    padding: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos para a imagem do card */
+.ad-image {
+    width: 100px; /* Largura fixa para a imagem */
+    height: 100px; /* Altura fixa para a imagem */
+    object-fit: cover; /* Garante que a imagem cubra o espaço sem distorcer */
+    border-radius: 8px;
+    margin-bottom: 10px; /* Espaçamento entre a imagem e o texto */
+}
+
+/* Estilos para o texto do card */
+.ad-text {
+    font-size: 0.9em;
+    color: #333;
+}
+
+.ad-link {
+    text-decoration: none;
+    color: #007bff;
+    font-weight: bold;
+}
+
+.ad-link:hover {
+    text-decoration: underline;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .ad-section {
+        width: 100%; /* Ocupa toda a largura em telas pequenas */
+        margin-left: 0; /* Remove o espaçamento à esquerda */
+        margin-bottom: 20px; /* Espaçamento abaixo da seção */
+    }
+}
+
 /*A <div class="content-wrapper"> envolve o conteúdo principal e a nova seção de anúncios, utilizando display: flex; para alinhar os elementos lado a lado.*/
 .content-wrapper {
     display: flex;
     justify-content: space-between;
     padding: 20px;
 }
-/*Formata a sessao de anuncios
-A .ad-section foi estilizada para ter uma largura fixa de 300px, e um fundo levemente diferente para destacar os anúncios.*/
-.ad-section {
-    width: 200px;
-    padding: 20px;
-    background-color: #afaaaa;
-    border: 1px solid #ff4081;
-}
 
-.ad-section h2 {
-    text-align: center;
-    color: #f6f5f5;
-}
-/*Cada anúncio dentro da seção de anúncios (.ad) foi estilizado para incluir uma imagem e um texto descritivo abaixo dela.*/
-.ad-section .ad {
-    margin-bottom: 20px;
-}
-
-.ad-section .ad img {
-    max-width: 100%;
-    display: block;
-    margin: 0 auto;
-}
-
-.ad-section .ad p {
-    text-align: center;
-    font-size: 14px;
-}
 
 /* Ajuste do menu de navegação para respeitar o fluxo da página */
 .navigation {
