@@ -8,15 +8,50 @@ header {
 
 h4 {
     font-size: 24px;
-    color: #4a7a8c;
+    color: #c7cbcd;
     text-align: center;
     margin-bottom: 20px;
   }
 p {
-    color: red;
+    color: rgb(239, 22, 22);
 }
 
-/* Ajuste da navegação para respeitar o fluxo da página */
+/*A <div class="content-wrapper"> envolve o conteúdo principal e a nova seção de anúncios, utilizando display: flex; para alinhar os elementos lado a lado.*/
+.content-wrapper {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+/*Formata a sessao de anuncios
+A .ad-section foi estilizada para ter uma largura fixa de 300px, e um fundo levemente diferente para destacar os anúncios.*/
+.ad-section {
+    width: 200px;
+    padding: 20px;
+    background-color: #afaaaa;
+    border: 1px solid #ff4081;
+}
+
+.ad-section h2 {
+    text-align: center;
+    color: #f6f5f5;
+}
+/*Cada anúncio dentro da seção de anúncios (.ad) foi estilizado para incluir uma imagem e um texto descritivo abaixo dela.*/
+.ad-section .ad {
+    margin-bottom: 20px;
+}
+
+.ad-section .ad img {
+    max-width: 100%;
+    display: block;
+    margin: 0 auto;
+}
+
+.ad-section .ad p {
+    text-align: center;
+    font-size: 14px;
+}
+
+/* Ajuste do menu de navegação para respeitar o fluxo da página */
 .navigation {
     display: flex;
     position: relative; /* Permite que os elementos abaixo sejam empurrados para baixo */
@@ -30,7 +65,74 @@ nav button{
     border-radius: 0 !important;
     border: 2px solid red; 
 }
-/* Ajuste geral da tela */
+
+/* Estilos básicos */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background: #007bff;
+    color: white;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+}
+
+.nav-links li a, #logout {
+    text-decoration: none;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+#logout {
+    background: red;
+    border: none;
+    cursor: pointer;
+}
+
+.menu-toggle {
+    display: none; /* Escondido por padrão */
+    font-size: 24px;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+/* Estilos para telas menores */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        background: #007bff;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        width: 100%;
+        text-align: center;
+        padding: 10px 0;
+    }
+
+    .nav-links li {
+        padding: 10px 0;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .nav-links.show {
+        display: flex;
+    }
+}
+
+
+/* Ajuste geral da tela de exibição  */
 .tela {
     min-height: 100vh; /* Garante altura mínima da tela */
     background-color: #01598544;
@@ -259,6 +361,20 @@ footer{
         font-size: 20px; /* Adjust the size as needed */
         margin-bottom: 10px;
         color: #4CAF50;
+    }
+    .embed-responsive-16by9 {
+        padding-bottom: 56.25%; /* 16:9 aspect ratio */
+        height: 0;
+        overflow: hidden;
+        position: relative;
+        width: 100%;
+    }
+    .embed-responsive-16by9 iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
     }
 }
  

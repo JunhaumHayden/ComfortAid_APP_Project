@@ -31,7 +31,7 @@
         <nav>
             <ul>
                 <li><a href="../">Início</a></li>
-                <li><a href="comfortaid_profissional_env.html">Login</a></li>
+                <li><a href="comfortaid_user_env.html">Login</a></li>
                 <li><a href="tel:+5548988900001">Contato</a></li>
             </ul>
         </nav>
@@ -51,7 +51,6 @@
             </button>
             <button type="button" class="btn btn-primary" onclick="navega('Reviews')">
                 <i class="fa-solid fa-star"></i>
-                
                 Avaliações
             </button>
         </nav>
@@ -65,7 +64,7 @@
             <!-- Apresentacao Elemento Servicos com axios-->
         <div id="services" class="tela collapse">
             <div class="container-services">
-                <div class="search-bar mb-4"></div>
+                <div class="search-bar mb-4">
                     <input type="text" id="search-input" class="form-control" placeholder="Buscar serviços...">
                     <button type="button" class="btn btn-primary mt-2" onclick="buscarServicos()">Buscar</button>
                 </div>
@@ -125,113 +124,53 @@
                 <div id="schedule-message" class="mt-3"></div>
             </div>
         </div>
-         <!-- Apresentacao de Avaliacoes e parceiros do aplicativo-->
+        
+        <!-- Apresentacao de Avaliacoes e parceiros do aplicativo-->
         <div id="Reviews" class="tela collapse">
-            <h3>Avaliacoes</h3>
-            <section class="painel-cartoes">
-                <div class="cartao">
-                    <i class="fa-solid fa-folder"></i>
-                    <!-- elemnto <i> utilizado para inserir o icone do font-awesome. -->
-                        <div class="card mb-4">
-                            <div class="row no-gutters d-flex flex-wrap flex-md-nowrap align-items-center">
-                                <!-- Texto -->
-                                <div class="col-12 col-md-8">
-                                    <div class="card-body text-center text-md-left">
-                                        <h5 class="card-title">Dona Ana</h5>
-                                        <p class="card-text">Confira a avaliação de Dona Ana que sofria com dores nas pernas.</p>
-                                    </div>
-                                </div>
-                                <!-- Vídeo (irá para cima em telas menores) -->
-                                <div class="col-12 col-md-4 text-center">
-                                    <div class="embed-responsive embed-responsive-16by9">
-                                        <iframe class="embed-responsive-item" 
-                                            src="https://www.youtube.com/embed/NWbunEuhg-Y" 
-                                            allowfullscreen>
-                                        </iframe>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+            <div class="container">
+            <div class="row">
+                <div class="col-md-8">
+                <h3>Avaliações</h3>
+                <div id="reviews-list" class="list-group">
+                    <!-- Avaliações serão carregadas aqui -->
                 </div>
-
-                <div class="cartao">
-                    <i class="fa-solid fa-folder"></i>
-                    <!-- elemnto <i> utilizado para inserir o icone do font-awesome. -->
-                        <div class="card mb-4">
-                            <div class="row no-gutters d-flex flex-wrap flex-md-nowrap align-items-center">
-                                
-                                <!-- Vídeo (irá para cima em telas menores) -->
-                                <div class="col-12 col-md-4 text-center">
-                                    <div class="embed-responsive embed-responsive-16by9">
-                                        <iframe class="embed-responsive-item" 
-                                            src="https://www.youtube.com/embed/WZ9myFKmNjg" 
-                                            allowfullscreen>
-                                        </iframe>
-                                    </div>
-                                </div>
-                                <!-- Texto -->
-                                <div class="col-12 col-md-8">
-                                    <div class="card-body text-center text-md-left">
-                                        <h5 class="card-title">Veja a avaliação da Maria</h5>
-                                        <p class="card-text">Mais uma cliente satisfeita</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                 </div>
-
-                <div class="cartao">
-                    <i class="fa-solid fa-folder"></i>
-                    <img src="./assets/img/icone192.png" alt="Logo" width=20%>
-                    <!-- elemnto <i> utilizado para inserir o icone do font-awesome. -->
-                        <a href="https://junhaumhayden.github.io/publish/">Landingpage</a>
+                <div class="col-md-4">
+                <h4>Links Patrocinados</h4>
+                <div class="list-group">
+                    <div class="ad">
+                        <a href="https://junhaumhayden.github.io/publish/" class="list-group-item list-group-item-action">Landingpage</a>
+                    </div>
+                    <div class="ad">
+                        <figure>
+                            <img src="../FrontEnd/landingpage/Flexbox/anuncios/imagens/icon-1.png" width="100" alt="FlexTurismo">
+                        </figure>
+                        <a href="https://junhaumhayden.github.io/publish/flexturismo.html" class="list-group-item list-group-item-action">FlexTurismo</a>
+                    </div>
+                    <div class="ad">
+                        <img src="https://img.freepik.com/vetores-gratis/gato-bonito-com-ilustracao-dos-desenhos-animados-do-amor-sinal-mao-conceito-de-natureza-animal-isolado-estilo-flat-cartoon_138676-3419.jpg?w=1480&t=st=1724200872~exp=1724201472~hmac=de3b4f39c0ead5885aecdb0ddfe10c41815b69e81d8b9a53a390d50bd5533998" width= 100 alt="Amazon">
+                        <p><a href="../FrontEnd/landingpage/Flexbox/anuncios/gatinhos.html">Veja os Gatinhos mais fofinhos com JavaScript</a></p>
+                    
+                        <a href="https://junhaumhayden.github.io/publish/gatinhos.html" class="list-group-item list-group-item-action">Ver Gatinhos Fofinhos</a>
+                    </div>
+                    <div class="ad">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQtLRjfzWzhL9UimIixsWB-DKOeRub2CFgC29qHsR7PXxF-Inptit722udqVMesTLsYbJl6Fw&s" width= 100 alt="ChefList, as melhores receitas da internet">
+                        <a href="https://arthurs08.github.io/ChefListPrj/" class="list-group-item list-group-item-action">ChefList</a>
+                    </div>
                 </div>
-
-                <div class="cartao">
-                    <i class="fa-solid fa-folder"></i>
-                    <img src="./assets/img/wpp-logo.svg" alt="Logo" width=10%>
-                        <a href="https://junhaumhayden.github.io/publish/gatinhos.html">Ver Gatinhos</a>
+                <div class="list-group">
+                    <a href="https://junhaumhayden.github.io/publish/" class="list-group-item list-group-item-action">Landingpage</a>
+                    <a href="https://junhaumhayden.github.io/publish/flexturismo.html" class="list-group-item list-group-item-action">FlexTurismo</a>
+                    <a href="https://junhaumhayden.github.io/publish/gatinhos.html" class="list-group-item list-group-item-action">Ver Gatinhos Fofinhos</a>
                 </div>
-                
-
-                <div class="cartao">
-                    <i class="fa-solid fa-folder"></i>
-                    <img src="./assets/img/img04.ico" alt="Logo" width=10%>
-                    <a href="https://junhaumhayden.github.io/publish/flexturismo.html">FlexTurismo</a>
                 </div>
-
-                <div class="cartao">
-                    <i class="fa-solid fa-folder"></i>
-                    <img src="./assets/img/mail.svg" alt="Logo" width=10%>
-                    <a href="https://junhaumhayden.github.io/publish/contato.html">Deixe um comentário</a>
-                </div>
-
-                <div class="cartao">
-                    <i class="fa-solid fa-folder"></i>
-                    <!-- elemnto <i> utilizado para inserir o icone do font-awesome. -->
-                    Um Cartão
-                </div>
-                <div class="cartao">
-                    <i class="fa-solid fa-folder"></i>
-                    <!-- elemnto <i> utilizado para inserir o icone do font-awesome. -->
-                    Oto Cartão
-                </div>
-                <div class="cartao">
-                    <i class="fa-solid fa-folder"></i>
-                    <!-- elemnto <i> utilizado para inserir o icone do font-awesome. -->
-                    Mais Oto Cartão
-                </div>
-                <div class="cartao">
-                    <i class="fa-solid fa-folder"></i>
-                    <!-- elemnto <i> utilizado para inserir o icone do font-awesome. -->
-                    Ultimo Cartão
-                </div>
-                <div class="cartao"></div>
-                    <i class="fa-solid fa-folder"></i>
-                    <img src="./assets/img/ig-logo.svg" alt="Logo">
-                </div>
-            </section>
+            </div>
+            </div>
         </div>
+
+        <script>
+            
+        </script></div>
 
         <footer>
             <div class="footer-container">
@@ -272,10 +211,10 @@
             function buscarServicos() {
                 const query = document.getElementById('search-input').value.toLowerCase();
                 const apiServicosUrl = 'http://localhost:5000/servicos';
-
+            
                 axios.get(apiServicosUrl)
                     .then(response => {
-                        const serviceList = document.getElementById('service');
+                        const serviceList = document.getElementById('service-list');
                         serviceList.innerHTML = ''; // Limpa a lista antes de adicionar novos itens
                         response.data.forEach(servico => {
                             if (servico.nome.toLowerCase().includes(query) || servico.descricao.toLowerCase().includes(query)) {
@@ -293,19 +232,7 @@
                         errorMessage.textContent = 'Ocorreu um erro ao buscar os serviços. Tente novamente mais tarde.';
                     });
             }
-            // Função para carregar o conteúdo da página de apresentação
-            // function carregarApresentacao() {
-            //         const presentationUrl = './assets/html/presentation.html';
-            //         axios.get(presentationUrl)
-            //             .then(response => {
-            //                 document.getElementById('presentation-content').innerHTML = response.data;
-            //             })
-            //             .catch(error => {
-            //                 console.error('Erro ao carregar a apresentação:', error);
-            //                 document.getElementById('presentation-content').innerHTML = 'Ocorreu um erro ao carregar a apresentação. Tente novamente mais tarde.';
-            //             });
-            //     }
-
+            
             // Função para carregar o conteúdo da página de apresentação
             function carregarApresentacao() {
                 const presentationUrl = './assets/html/presentation.html';
@@ -329,7 +256,6 @@
                     });
             }
              
-
             // Função para carregar os detalhes do serviço ao clicar no card
             function carregarDetalhesServico(servicoId) {
                 const apiServicoDetalhesUrl = `http://localhost:5000/servicos/${servicoId}`;
@@ -354,6 +280,14 @@
                                     <!-- Imagens serão carregadas aqui -->
                                 </div>
                             </div>
+                            <div class="row mt-4">
+                                <div class="col-12">
+                                    <h4>Avaliações</h4>
+                                    <div id="service-reviews" class="list-group">
+                                        <!-- Avaliações serão carregadas aqui -->
+                                    </div>
+                                </div>
+                            </div>
                             `;
                         
                         document.getElementById('service-details-content').innerHTML = detailsContent;
@@ -374,6 +308,30 @@
                             .catch(error => {
                                 console.error('Erro ao carregar as imagens:', error);
                             });
+
+                        const apiAvaliacoesUrl = `http://localhost:5000/avaliacoes?servicoId=${servicoId}`;
+                        axios.get(apiAvaliacoesUrl)
+                            .then(response => {
+                                const reviewsList = document.getElementById('service-reviews');
+                                reviewsList.innerHTML = ''; // Limpa a lista antes de adicionar novos itens
+                                response.data.forEach(avaliacao => {
+                                    const reviewItem = document.createElement('div');
+                                    reviewItem.className = 'list-group-item';
+
+                                    const reviewContent = `
+                                        <h5 class="mb-1">${avaliacao.cliente.nome}</h5>
+                                        <p class="mb-1">${avaliacao.comentario}</p>
+                                        <small>Nota: ${avaliacao.nota}</small>
+                                    `;
+
+                                    reviewItem.innerHTML = reviewContent;
+                                    reviewsList.appendChild(reviewItem);
+                                });
+                            })
+                            .catch(error => {
+                                console.error('Erro ao carregar as avaliações:', error);
+                                document.getElementById('service-reviews').innerHTML = 'Ocorreu um erro ao carregar as avaliações. Tente novamente mais tarde.';
+                            });
                     })
                     .catch(error => {
                         console.error('Erro ao carregar os detalhes do serviço:', error);
@@ -382,8 +340,9 @@
             }
 
             // Função para carregar os detalhes do profissional ao clicar no card
-            function carregarDetalhesProfissional(profissionalID) {
-                const apiProfissionalDetalhesUrl = `http://localhost:5000/profissionais/${profissionalID}`;
+            function carregarDetalhesProfissional(profissionalId) {
+                // Carrega os dados do profissional
+                const apiProfissionalDetalhesUrl = `http://localhost:5000/profissionais/${profissionalId}`;
                 axios.get(apiProfissionalDetalhesUrl)
                     .then(response => {
                         const profissional = response.data;
@@ -397,35 +356,154 @@
                                     <p>Email: ${profissional.email}</p>
                                     <p>Telefone: ${profissional.telefone}</p>
                                 </div>
-                                <div class="col-md-6" id="service-images">
+                                <div class="col-md-6" id="profile-images">
                                     <!-- Imagens serão carregadas aqui -->
+                                </div>
+                            </div>
+                            <div class="row mt-4">
+                                <div class="col-12">
+                                    <h4>Serviços Fornecidos</h4>
+                                    <div class="row" id="professional-services"></div>
                                 </div>
                             </div>
                             `;
                         
-                        document.getElementById('service-details-content').innerHTML = detailsContent;
-
-                        const apiImagensUrl = `http://localhost:5000/imagens/usuario/foto/${profissional.id}`;
+                        document.getElementById('profile-details-content').innerHTML = detailsContent;
+                            // Carrega uma lista de fotos do profissional
+                        const apiImagensUrl = `http://localhost:5000/imagens/usuario/fotos/${profissionalId}`;
                         axios.get(apiImagensUrl)
                             .then(response => {
-                                const serviceImages = document.getElementById('service-images');
-                                serviceImages.innerHTML = ''; // Limpa as imagens antes de adicionar novas
+                                const profileImages = document.getElementById('profile-images');
+                                profileImages.innerHTML = ''; // Limpa as imagens antes de adicionar novas
                                 response.data.forEach((imagem, index) => {
                                     const img = document.createElement('img');
-                                    img.src = `data:image/png;base64,${imagem.foto}`;
+                                    img.src = `data:image/png;base64,${imagem}`;
                                     img.className = 'img-fluid mb-2';
                                     img.alt = `Imagem ${index}`;
-                                    serviceImages.appendChild(img);
+                                    profileImages.appendChild(img);
                                 });
                             })
                             .catch(error => {
                                 console.error('Erro ao carregar as imagens:', error);
                             });
+                            // Carrega os servicos do profissional
+                        const apiServicosUrl = `http://localhost:5000/servicos/profissional/${profissionalId}`;
+                        axios.get(apiServicosUrl)
+                            .then(response => {
+                                const serviceList = document.getElementById('professional-services');
+                                serviceList.innerHTML = ''; // Limpa a lista antes de adicionar novos itens
+                                response.data.forEach(servico => {
+                                    const card = criarCardServico(servico, true);
+                                    serviceList.appendChild(card);
+                                });
+                            })
+                            .catch(error => {
+                                console.error('Erro ao carregar os serviços:', error);
+                                document.getElementById('professional-services').innerHTML = 'Ocorreu um erro ao carregar os serviços. Tente novamente mais tarde.';
+                            });
                     })
                     .catch(error => {
-                        console.error('Erro ao carregar os detalhes do serviço:', error);
-                        document.getElementById('service-details-content').innerHTML = 'Ocorreu um erro ao carregar os detalhes do serviço. Tente novamente mais tarde.';
+                        console.error('Erro ao carregar os detalhes do profissional:', error);
+                        document.getElementById('profile-details-content').innerHTML = 'Ocorreu um erro ao carregar os detalhes do profissional. Tente novamente mais tarde.';
                     });
+            }
+
+            // Função para criar o card do serviço
+            function criarCardServico(servico, isSmall = false) {
+                const col = document.createElement('div');
+                col.className = isSmall ? 'col-md-3 mb-4' : 'col-md-4 mb-4';
+                const card = document.createElement('div');
+                card.className = 'card h-100';
+
+                const cardBody = document.createElement('div');
+                cardBody.className = 'card-body d-flex flex-column';
+
+                const carousel = document.createElement('div');
+                carousel.id = `carousel-${servico.id}`;
+                carousel.className = 'carousel slide mb-3';
+                carousel.setAttribute('data-bs-ride', 'carousel');
+
+                const carouselInner = document.createElement('div');
+                carouselInner.className = 'carousel-inner';
+
+                const apiImagensUrl = `http://localhost:5000/imagens/servico/${servico.id}`;
+
+                axios.get(apiImagensUrl)
+                    .then(response => {
+                        response.data.forEach((imagem, index) => {
+                            const carouselItem = document.createElement('div');
+                            carouselItem.className = `carousel-item ${index === 0 ? 'active' : ''}`;
+
+                            const img = document.createElement('img');
+                            img.src = `data:image/png;base64,${imagem.foto}`;
+                            img.className = 'd-block w-100';
+                            img.alt = `Imagem ${index + 1}`;
+
+                            carouselItem.appendChild(img);
+                            carouselInner.appendChild(carouselItem);
+                        });
+                    })
+                    .catch(error => {
+                        console.error('Erro ao carregar as imagens:', error);
+                    });
+
+                carousel.appendChild(carouselInner);
+
+                const prevButton = document.createElement('button');
+                prevButton.className = 'carousel-control-prev';
+                prevButton.type = 'button';
+                prevButton.setAttribute('data-bs-target', `#carousel-${servico.id}`);
+                prevButton.setAttribute('data-bs-slide', 'prev');
+                prevButton.innerHTML = `
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                `;
+
+                const nextButton = document.createElement('button');
+                nextButton.className = 'carousel-control-next';
+                nextButton.type = 'button';
+                nextButton.setAttribute('data-bs-target', `#carousel-${servico.id}`);
+                nextButton.setAttribute('data-bs-slide', 'next');
+                nextButton.innerHTML = `
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                `;
+
+                carousel.appendChild(prevButton);
+                carousel.appendChild(nextButton);
+
+                const title = document.createElement('h5');
+                title.className = 'card-title';
+                title.textContent = servico.nome;
+
+                const descricao = document.createElement('p');
+                descricao.className = 'card-text';
+                descricao.textContent = servico.descricao;
+
+                const preco = document.createElement('p');
+                preco.className = 'price';
+                preco.textContent = 'Preço: R$ ' + servico.preco.toFixed(2);
+
+                const duracao = document.createElement('p');
+                duracao.className = 'duration';
+                duracao.textContent = 'Duração: ' + servico.duracao + ' minutos';
+
+                const profissional = document.createElement('p');
+                profissional.className = 'professional';
+                profissional.textContent = 'Profissional: ' + servico.profissional.nome;
+
+                cardBody.appendChild(carousel);
+                cardBody.appendChild(title);
+                cardBody.appendChild(descricao);
+                cardBody.appendChild(preco);
+                cardBody.appendChild(duracao);
+                cardBody.appendChild(profissional);
+
+                card.dataset.servicoId = servico.id;
+                card.appendChild(cardBody);
+                col.appendChild(card);
+
+                return col;
             }
             
 
@@ -453,7 +531,7 @@
             });
             
             // Função para criar o card do serviço
-            function criarCardServico(servico) {
+            function criarCardServicos(servico) {
                 const col = document.createElement('div');
                 col.className = 'col-md-4 mb-4';
                 const card = document.createElement('div');
@@ -474,7 +552,7 @@
 
                 axios.get(apiImagensUrl)
                     .then(response => {
-                        response.data.slice(1).forEach((imagem, index) => {
+                        response.data.forEach((imagem, index) => {
                             const carouselItem = document.createElement('div');
                             carouselItem.className = `carousel-item ${index === 0 ? 'active' : ''}`;
 
@@ -490,8 +568,6 @@
                     .catch(error => {
                         console.error('Erro ao carregar as imagens:', error);
                     });
-                    
-
 
                 carousel.appendChild(carouselInner);
 
@@ -552,7 +628,9 @@
                 return col;
             }
 
-            // Função para carregar os serviços ao clicar na aba
+
+
+            // Função para carregar os serviços ao clicar na aba Servicos
             function carregarServicos() {
                 // Endpoint da API de serviços
             const apiServicosUrl = 'http://localhost:5000/servicos';
@@ -561,7 +639,7 @@
                         const serviceList = document.getElementById('service-list');
                         serviceList.innerHTML = ''; // Limpa a lista antes de adicionar novos itens
                         response.data.forEach(servico => {
-                            const card = criarCardServico(servico);
+                            const card = criarCardServicos(servico);
                             serviceList.appendChild(card);
                         });
                     })
@@ -649,7 +727,34 @@
                     });
             }
 
+            // Função para carregar as avaliações
+            function carregarAvaliacoes() {
+            const apiAvaliacoesUrl = 'http://localhost:5000/avaliacoes';
+            axios.get(apiAvaliacoesUrl)
+                .then(response => {
+                const reviewsList = document.getElementById('reviews-list');
+                reviewsList.innerHTML = ''; // Limpa a lista antes de adicionar novos itens
+                response.data.forEach(avaliacao => {
+                    const reviewItem = document.createElement('div');
+                    reviewItem.className = 'list-group-item';
 
+                    const reviewContent = `
+                    <h5 class="mb-1">${avaliacao.cliente.nome}</h5>
+                    <p class="mb-1">${avaliacao.comentario}</p>
+                    <small>Nota: ${avaliacao.nota} - Serviço: ${avaliacao.servico.nome}</small>
+                    `;
+
+                    reviewItem.innerHTML = reviewContent;
+                    reviewsList.appendChild(reviewItem);
+                });
+                })
+                .catch(error => {
+                console.error('Erro ao carregar as avaliações:', error);
+                document.getElementById('reviews-list').innerHTML = 'Ocorreu um erro ao carregar as avaliações. Tente novamente mais tarde.';
+                });
+            }
+
+            
             function navega(destino){
                 let telas = document.getElementsByClassName('tela')
                 Array.from(telas).forEach(element => {
@@ -665,6 +770,8 @@
             document.querySelector('button[onclick="navega(\'services\')"]').addEventListener('click', carregarServicos);
             // Adiciona o evento de clique ao botão de profissionais
             document.querySelector('button[onclick="navega(\'profiles\')"]').addEventListener('click', carregarProfissionais);
+            // Carrega as avaliações ao abrir a aba Reviews
+            document.querySelector('button[onclick="navega(\'Reviews\')"]').addEventListener('click', carregarAvaliacoes);
             
             // Adiciona o evento de clique aos cards de serviço
             document.getElementById('service-list').addEventListener('click', function(event) {

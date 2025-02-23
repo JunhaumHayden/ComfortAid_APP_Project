@@ -5,7 +5,7 @@
  * um cache salvo
  */
 const version = 1
-const cachename = 'webcode-cache-v'+version
+const cachename = 'comfortaid-v'+version
 
 /**
  * Arquivos que serão salvos no cache para uso offline
@@ -20,14 +20,15 @@ const cachename = 'webcode-cache-v'+version
  */
 const arquivos = [
     "./",
-    "./indexx.html",
-    "./comfortaid_profissional_show.html",
-    "./comfortaid_profissional_env.html",
+    "./index.html",
+    "./comfortaid_user_env.html",
     "./main.js",
     "./service-worker.js",
     "./manifest.json",
     "./assets/css/style.css",
     "./assets/html/presentation.html",
+    "/assets/forms/update-data.html",
+    "/assets/forms/new-service.html",
     "./assets/js/script.js",
     "./assets/img/comfortaid01.jpg",
     "./assets/img/comfortaid02.jpg",
