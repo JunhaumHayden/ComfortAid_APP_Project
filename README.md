@@ -1,5 +1,7 @@
 # ComfortAid Project
 
+Web page: https://junhaumhayden.github.io/ComfortAid_APP_Project/
+
 ## Descrição do Projeto
 
 O projeto ComfortAid é uma aplicação móvel desenvolvida para fornecer assistência e conforto aos usuários em diversas situações. A aplicação oferece funcionalidades como monitoramento de saúde, lembretes de medicação, e suporte em emergências.
