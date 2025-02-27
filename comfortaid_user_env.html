@@ -17,88 +17,26 @@
             href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css'>
      <!-- Bootstrap CSS -->
      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <style>
-        /* body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-color: #f0f0f0;
-        } */
-        .container_inner {
-            display: flex;
-            justify-content: space-evenly; /* Distribui o espaço entre os filho de maneira igual*/
-            flex-wrap: wrap; /* Permite que o flex defina o número de elementos por linha*/
-            gap: 6rem; /* Define o espaço entre os elementos filhos*/
-            padding: 1rem;
-
-            margin-bottom: 5rem;
-            background-color: #f5f5f5;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            border-radius: 8px;
-            margin: 10rem;
-            
-            /* width: 100%;
-            max-width: 400px;
-            background-color: #fff;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
-            border-radius: 8px; 
-            flex-direction: column;
-            align-items: center;
-            height: 100vh; */
-        }
-        .nav-link{
-            color: #3160bf;
-        }
-        .hidden {
-            display: none;
-        }
-        .form-group {
-            margin-bottom: 15px;
-        }
-        .form-group label {
-            display: block;
-            margin-bottom: 5px;
-        }
-        .form-group input {
-            width: 100%;
-            padding: 8px;
-            box-sizing: border-box;
-        }
-        .form-group button {
-            width: 100%;
-            padding: 10px;
-            background-color: #007BFF;
-            color: #fff;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-        .form-group button:hover {
-            background-color: #0056b3;
-        }
-    </style>
+     
 </head>
 <body>
-    <header>
-        <h1>🌐 ComfortAid 🐘</h1>
-    </header>
+
+</body>
+</html>
      <!-- barra de navegacao da Aplicação -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
             <!-- Botão do menu de hambúrguer -->
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-
+            <!-- Logo ou Nome do site -->
+        <a class="navbar-brand ms-3 fw-bold" href="#">ComfortAid</a>
             <!-- Itens do menu -->
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0 bg-light">
                     <li class="nav-item">
-                        <a class="nav-link" href="index.html">Início</a>
+                        
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#" onclick="navega('home')">Voltar</a>
@@ -107,97 +45,128 @@
                         <a class="nav-link" href="tel:+5548988900001">Contato</a>
                     </li>
                 </ul>
+                <!-- Link de Contato -->
+            <a href="tel:+5548988900001" class="btn btn-light me-3">
+                <i class="fa-solid fa-phone"></i> Contato
+            </a>
+
+            <!-- Link de Login
+            <a href="comfortaid_user_env.html" class="btn btn-primary">
+                <i class="fa-solid fa-sign-in-alt"></i> Login
+            </a> -->
             </div>
         </div>
     </nav>
-    <!-- Apresentacao da tela -->
-    <div class="container_inner">
-        <!-- Apresentacao de login -->
-        <div id="login-page">
-            <h2 class="card-title text-center mb-4">Login</h2>
-            <div class="form-group mb-3">
-                <label for="email">Email</label>
-                <input type="email" id="login-email" class="form-control" placeholder="Digite seu email" required>
-            </div>
-            <div class="form-group mb-4">
-                <label for="password">Senha</label>
-                <input type="password" id="login-password" class="form-control" placeholder="Digite sua senha" required>
-            </div>
-            <div class="d-grid mb-3">
-                <button class="btn btn-primary" onclick="login()">Entrar</button>
-            </div>
-            <div class="text-center">
-                <a href="#" data-bs-toggle="modal" data-bs-target="#cadastroModal" class="text-decoration-none">
-                    Não tem uma conta? <strong>Cadastre-se aqui</strong>
-                </a>
-            </div>
-        </div>
-        
-     <!-- ####### Apresentacao da area restrita a profissionais ######-->
-        <div id="professional-page" class="hidden">
-             <!-- Botão para alternar a visibilidade -->
-            <!-- Menu de Navegação -->
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <div class="container-fluid">
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#userNav" aria-controls="userNav" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="userNav">
-                        <div class="navigation d-flex justify-content-around mb-4">
-                            <button type="button" class="btn btn-primary" onclick="navega('home')">
-                                <i class="fa-solid fa-home"></i> Home
-                            </button>
-                            <button type="button" class="btn btn-primary" onclick="navega('update-data')">
-                                <i class="fa-solid fa-concierge-bell"></i> Atualizar Dados
-                            </button>
-                            <button type="button" class="btn btn-primary" onclick="navega('new-service')">
-                                <i class="fa-solid fa-file"></i> Cadastrar Novo Serviço
-                            </button>
-                            <button type="button" class="btn btn-primary" onclick="navega('Reviews')">
-                                <i class="fa-solid fa-star"></i> Avaliações
-                            </button>
-                            <button type="button" class="btn btn-primary" onclick="logout()">
-                                <i class="fa-solid fa-right-from-bracket"></i> Sair
-                            </button>
-                        </div>
+    
+    <!-- Apresentacao de login -->
+    <div id="login-page">
+        <div id="login-pages" class="container d-flex justify-content-center align-items-center vh-100">
+            <div class="card shadow-lg p-4" style="width: 100%; max-width: 400px;">
+                <div class="card-body">
+                    <h2 class="card-title text-center mb-4">Login</h2>
+                    <div class="form-group mb-3">
+                        <label for="email">Email</label>
+                        <input type="email" id="login-email" class="form-control" placeholder="Digite seu email" required>
+                    </div>
+                    <div class="form-group mb-4">
+                        <label for="password">Senha</label>
+                        <input type="password" id="login-password" class="form-control" placeholder="Digite sua senha" required>
+                    </div>
+                    <div class="d-grid mb-3">
+                        <button class="btn btn-primary" onclick="login()">Entrar</button>
+                    </div>
+                    <div class="text-center">
+                        <a href="#" data-bs-toggle="modal" data-bs-target="#cadastroModal" class="text-decoration-none">
+                            Não tem uma conta? <strong>Cadastre-se aqui</strong>
+                        </a>
                     </div>
                 </div>
-            </nav>
-             <!-- Elemento que será alternado -->
-             <!-- Apresentacao Elemento Home -->
-            <div id="home" class="tela show">
-                <h3>HOME</h3>
-                <h2>Bem-vindo, <span id="professional-name"></span></h2>
-                <button class="btn btn-secondary" onclick="navega('update-data')">Atualizar Dados</button>
-                <button class="btn btn-secondary" onclick="navega('new-service')">Cadastrar Novo Serviço</button>
-                
-                <h4>Agendamentos Programados</h4>
-                    <div class="row" id="scheduled-appointments"></div>
-                    <div id="error-message" class="error-message"></div>
-                    <ul id="appointments-list"></ul>
-                    <!-- Conteúdo da página de apresentação -->
             </div>
-            <!-- Apresentacao Elemento Atualizar Dados -->
-            <div id="update-data" class="tela collapse">
-                <h3>Atualizar Dados</h3>
-                    <form id="update-data-form">
-                        <fieldset>
-                            <legend> 
-                                Cadastro de Dados Pessoais
-                            </legend>
-                            <div class="form-group">
-                                <label for="nome">Nome</label>
-                                <input type="text" id="nome" class="form-control" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="email">Email</label>
-                                <input type="text" id="email" class="form-control" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="senha">Senha</label>
-                                <input type="password" id="senha" class="form-control" required>
-                            </div>
-                            <!-- Campos específicos para profissionais -->
+        </div>
+    </div>
+        
+    <!-- ####### Apresentacao da area restrita a profissionais ######-->
+    <div id="professional-page" class="hidden">
+        <!-- barra de navegacao da Aplicação Navbar Bootstrap -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-secondary">
+            <div class="container-fluid">
+                <!-- Botão Hambúrguer -->
+                <button class="navbar-toggler btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#userNav" aria-controls="userNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Logo ou Nome do site -->
+                <a class="navbar-brand ms-3 text-light fw-bold" href="#">Área do Profissional</a>
+
+                <!-- Itens do Menu -- Botão para alternar a visibilidade -->
+                <div class="collapse navbar-collapse" id="userNav">
+                    <ul class="navbar-nav ms-auto bg-secondary">
+                        <li class="nav-item">
+                            <button class="btn btn-secondary me-2" onclick="navega('home')">
+                                <i class="fa-solid fa-home"></i> Home
+                            </button>
+                        </li>
+                        <li class="nav-item">
+                            <button class="btn btn-secondary me-2" onclick="navega('new-service')">
+                                <i class="fa-solid fa-plus"></i> Novo Serviço
+                            </button>
+                        </li>
+                        <li class="nav-item">
+                            <button class="btn btn-secondary me-2" onclick="navega('update-data')">
+                                <i class="fa-sync fa-solid"></i> Atualizar Dados
+                            </button>
+                        </li>
+                        <li class="nav-item">
+                            <button class="btn btn-secondary me-3" onclick="navega('Reviews')">
+                                <i class="fa-solid fa-star"></i> Avaliações
+                            </button>
+                        </li>
+                        <li class="nav-item">
+                            <button class="btn btn-secondary me-3" onclick="logout()">
+                                <i class="fa-solid fa-right-from-bracket"></i> Sair
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+            <!-- Elemento que será alternado -->
+            <!-- Apresentacao Elemento Home -->
+        <div id="home" class="tela show">
+            <h3>HOME</h3>
+            <h2>Bem-vindo, <span id="professional-name"></span></h2>
+            <h4>Agendamentos Programados</h4>
+                <div class="row" id="scheduled-appointments"></div>
+                <div id="error-message" class="error-message"></div>
+                <ul id="appointments-list"></ul>
+                <!-- Conteúdo da página de apresentação -->
+
+                <div class="search-bar mb-4">
+                    <button class="btn btn-secondary" onclick="navega('update-data')"><i class="fa-sync fa-solid"></i> Atualizar Dados</button>
+                    <button class="btn btn-secondary" onclick="navega('new-service')"><i class="fa-solid fa-plus"></i> Novo Serviço</button>
+                </div>
+        </div>
+        <!-- Apresentacao Elemento Atualizar Dados -->
+        <div id="update-data" class="tela collapse">
+            <h3>Atualizar Dados</h3>
+                <form id="update-data-form">
+                    <fieldset>
+                        <legend> 
+                            Cadastro de Dados Pessoais
+                        </legend>
+                        <div class="form-group">
+                            <label for="nome">Nome</label>
+                            <input type="text" id="nome" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="text" id="email" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="senha">Senha</label>
+                            <input type="password" id="senha" class="form-control" required>
+                        </div>
+                        <!-- Campos específicos para profissionais -->
                         <div id="profissional-fields" class="hidden">
                             <div class="form-group">
                                 <label for="especialidade">Especialidade</label>
@@ -208,306 +177,322 @@
                                 <input type="text" id="registro-profissional" class="form-control">
                             </div>
                         </div>
-                        <!-- Campos específicos para clientes -->
+                    <!-- Campos específicos para clientes -->
                         <div id="cliente-fields" class="hidden">
+                            <!-- retirados por inconsistencia -->
                         </div>
-                        </fieldset>
-                        <fieldset>
-                            <legend> 
-                                Cadastro de dados de Endereço
-                            </legend>
-                            <div class="form-group">
-                                <label for="telefone">Telefone</label>
-                                <input type="text" id="telefone" class="form-control" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="cep">CEP</label>
-                                <input type="text" id="cep" class="form-control" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="numero-endereco">Número</label>
-                                <input type="text" id="numero-endereco" class="form-control" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="complemento-endereco">Complemento</label>
-                                <input type="text" id="complemento-endereco" class="form-control">
-                            </div>
-                        </fieldset>
-                        <button type="submit" class="btn btn-primary">Atualizar Dados</button>
-                        
+                    </fieldset>
+                    <fieldset>
+                        <legend> 
+                            Cadastro de dados de Endereço
+                        </legend>
                         <div class="form-group">
-                            <label for="imagem-usuario-input">Imagem de Perfil</label>
-                            <input type="file" id="imagem-usuario-input" class="form-control">
-                            <button type="button" id="upload-imagem-btn" class="btn btn-secondary">Enviar Imagem</button>
+                            <label for="telefone">Telefone</label>
+                            <input type="text" id="telefone" class="form-control" required>
                         </div>
-                    </form>
-                    <img id="imagem-usuario" src="" alt="Imagem do Usuário" class="img-thumbnail mt-3">
+                        <div class="form-group">
+                            <label for="cep">CEP</label>
+                            <input type="text" id="cep" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="numero-endereco">Número</label>
+                            <input type="text" id="numero-endereco" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="complemento-endereco">Complemento</label>
+                            <input type="text" id="complemento-endereco" class="form-control">
+                        </div>
+                    </fieldset>
+                    <button type="submit" class="btn btn-primary">Atualizar Dados</button>
+                    
+                    <div class="form-group">
+                        <label for="imagem-usuario-input">Imagem de Perfil</label>
+                        <input type="file" id="imagem-usuario-input" class="form-control">
+                        <button type="button" id="upload-imagem-btn" class="btn btn-secondary">Enviar Imagem</button>
+                    </div>
+                </form>
+                <img id="imagem-usuario" src="" alt="Imagem do Usuário" class="img-thumbnail mt-3">
+        </div>
+        <!-- Apresentacao Elemento Cadastrar Novo Serviço -->
+        <div id="new-service" class="tela collapse">
+            <h3>Cadastrar Novo Serviço</h3>
+            <form id="new-service-form">
+                <div class="form-group">
+                    <label for="nome-servico">Nome do Serviço</label>
+                    <input type="text" id="nome-servico" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="descricao-servico">Descrição</label>
+                    <textarea id="descricao-servico" class="form-control" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="preco-servico">Preço</label>
+                    <input type="number" id="preco-servico" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="duracao-servico">Duração (minutos)</label>
+                    <input type="number" id="duracao-servico" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="situacao-servico">Situação</label>
+                    <select id="situacao-servico" class="form-control" required>
+                        <option value="ATIVO">Ativo</option>
+                        <option value="INATIVO">Inativo</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="data-disponivel-servico">Data Disponível</label>
+                    <input type="date" id="data-disponivel-servico" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="imagem-servico">Imagem do Serviço</label>
+                    <input type="file" id="imagem-servico" class="form-control">
+                </div>
+                <button type="button" class="btn btn-primary" onclick="cadastrarNovoServico()">Cadastrar</button>
+            </form>
+        </div>
+            <!-- Apresentacao de Avaliacoes e parceiros do aplicativo-->
+        <div id="Reviews" class="tela collapse">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8">
+                    <h3>Avaliações</h3>
+                    <div id="reviews-list" class="list-group">
+                        <!-- Avaliações serão carregadas aqui -->
+                    </div>
+                    </div>
+                    <div class="col-md-4">
+                    <h4>Links Patrocinados</h4>
+                    <div class="list-group">
+                        <a href="https://junhaumhayden.github.io/publish/" class="list-group-item list-group-item-action">Landingpage</a>
+                        <a href="https://junhaumhayden.github.io/publish/flexturismo.html" class="list-group-item list-group-item-action">FlexTurismo</a>
+                        <a href="https://junhaumhayden.github.io/publish/gatinhos.html" class="list-group-item list-group-item-action">Ver Gatinhos Fofinhos</a>
+                        <a href="https://arthurs08.github.io/ChefListPrj/" class="list-group-item list-group-item-action">ChefList</a>
+                    </div>
+                    </div>
+                </div>
             </div>
-            <!-- Apresentacao Elemento Cadastrar Novo Serviço -->
-            <div id="new-service" class="tela collapse">
-                <h3>Cadastrar Novo Serviço</h3>
-                <form id="new-service-form">
+        </div>
+    </div>
+    <!-- ###### Apresentacao da area restrita a cliente ####### -->
+    <div id="cliente-page" class="hidden">
+        <!-- barra de navegacao da Aplicação Navbar Bootstrap -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-secondary">
+            <div class="container-fluid">
+                <!-- Botão Hambúrguer -->
+                <button class="navbar-toggler btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#userNav" aria-controls="userNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Logo ou Nome do site -->
+                <a class="navbar-brand ms-3 text-light fw-bold" href="#">Área do Freguês</a>
+
+                <!-- Itens do Menu -- Botão para alternar a visibilidade -->
+                <div class="collapse navbar-collapse" id="userNav">
+                    <ul class="navbar-nav ms-auto bg-secondary">
+                        <li class="nav-item">
+                            <button class="btn btn-secondary me-2" onclick="navega('home-client')">
+                                <i class="fa-solid fa-home"></i> Home
+                            </button>
+                        </li>
+                        <!-- <li class="nav-item">
+                            <button class="btn btn-secondary me-2" onclick="navega('appointment-history-client')">
+                                <i class="fa-solid fa-file"></i> Historico de Agendamentos
+                            </button>
+                        </li> -->
+                        <li class="nav-item">
+                            <button class="btn btn-secondary me-2" onclick="navega('update-data-client')">
+                                <i class="fa-solid fa-concierge-bell"></i> Atualizar Dados
+                            </button>
+                        </li>
+                        <li class="nav-item">
+                            <button class="btn btn-secondary me-3" onclick="navega('Reviews-client')">
+                                <i class="fa-solid fa-star"></i> Avaliações
+                            </button>
+                        </li>
+                        <li class="nav-item">
+                            <button class="btn btn-secondary me-3" onclick="logout()">
+                                <i class="fa-solid fa-right-from-bracket"></i> Sair
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Elemento que será alternado -->
+        <!-- Apresentacao Elemento Home -->
+        <div id="home-client" class="tela show">
+            <h3>HOME</h3>
+            <h2>Bem-vindo, <span id="cliente-name"></span></h2>
+            <h4>Agendamentos Programados</h4>
+                <div class="row" id="scheduled-appointments-client"></div>
+                <div id="error-message" class="error-message"></div>
+                <!-- Conteúdo da página de apresentação -->
+                <div class="search-bar mb-4">
+                    <button class="btn btn-secondary" onclick="navega('uupdate-data-client')"><i class="fa-sync fa-solid"></i> Atualizar Dados</button>
+                </div>
+        </div>
+        <!-- Apresentacao Elemento Atualizar Dados -->
+        <div id="update-data-client" class="tela collapse">
+            <h3>Atualizar Dados</h3>
+                <form id="update-data-form-client">
+                    <fieldset>
+                        <legend> 
+                            Cadastro de Dados Pessoais
+                        </legend>
+                        <div class="form-group">
+                            <label for="nome">Nome</label>
+                            <input type="text" id="nome-client" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="text" id="email-client" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="senha">Senha</label>
+                            <input type="password" id="senha-client" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="cpf">CPF</label>
+                            <input type="text" id="cpf" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="nascimento">Data de Nascimento</label>
+                            <input type="date" id="nascimento" class="form-control">
+                        </div>
+                    
+                    </fieldset>
+                    <fieldset>
+                        <legend> 
+                            Cadastro de dados de Endereço
+                        </legend>
+                        <div class="form-group">
+                            <label for="telefone">Telefone</label>
+                            <input type="text" id="telefone-client" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="cep">CEP</label>
+                            <input type="text" id="cep-client" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="numero-endereco">Número</label>
+                            <input type="text" id="numero-endereco-client" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="complemento-endereco">Complemento</label>
+                            <input type="text" id="complemento-endereco-client" class="form-control">
+                        </div>
+                    </fieldset>
+                    <button type="submit" class="btn btn-primary">Atualizar Dados</button>
+                    
                     <div class="form-group">
-                        <label for="nome-servico">Nome do Serviço</label>
-                        <input type="text" id="nome-servico" class="form-control" required>
+                        <label for="imagem-usuario-input">Imagem de Perfil</label>
+                        <input type="file" id="imagem-usuario-input" class="form-control">
+                        <button type="button" id="upload-imagem-btn" class="btn btn-secondary">Enviar Imagem</button>
                     </div>
-                    <div class="form-group">
-                        <label for="descricao-servico">Descrição</label>
-                        <textarea id="descricao-servico" class="form-control" required></textarea>
+                </form>
+                <img id="imagem-usuario-client" src="" alt="Imagem do Usuário" class="img-thumbnail mt-3">
+        </div>
+        <!-- Apresentacao de Avaliacoes e parceiros do aplicativo-->
+        <div id="Reviews-client" class="tela collapse">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8">
+                    <h3>Avaliações</h3>
+                    <div id="reviews-list-client" class="list-group">
+                        <!-- Avaliações serão carregadas aqui -->
                     </div>
-                    <div class="form-group">
-                        <label for="preco-servico">Preço</label>
-                        <input type="number" id="preco-servico" class="form-control" required>
                     </div>
-                    <div class="form-group">
-                        <label for="duracao-servico">Duração (minutos)</label>
-                        <input type="number" id="duracao-servico" class="form-control" required>
+                    <div class="col-md-4">
+                    <h4>Links Patrocinados</h4>
+                    <div class="list-group">
+                        <a href="https://junhaumhayden.github.io/publish/" class="list-group-item list-group-item-action">Landingpage</a>
+                        <a href="https://junhaumhayden.github.io/publish/flexturismo.html" class="list-group-item list-group-item-action">FlexTurismo</a>
+                        <a href="https://junhaumhayden.github.io/publish/gatinhos.html" class="list-group-item list-group-item-action">Ver Gatinhos Fofinhos</a>
+                        <a href="https://arthurs08.github.io/ChefListPrj/" class="list-group-item list-group-item-action">ChefList</a>
                     </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<!-- Modal de Cadastro -->
+<div class="modal fade" id="cadastroModal" tabindex="-1" aria-labelledby="cadastroModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="cadastroModalLabel">Cadastro</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="cadastro-form">
                     <div class="form-group">
-                        <label for="situacao-servico">Situação</label>
-                        <select id="situacao-servico" class="form-control" required>
-                            <option value="ATIVO">Ativo</option>
-                            <option value="INATIVO">Inativo</option>
+                        <label for="tipo-usuario">Tipo de Usuário</label>
+                        <select id="tipo-usuario" class="form-control" required>
+                            <option value="cliente" selected>Cliente</option>
+                            <option value="profissional">Profissional</option>
                         </select>
                     </div>
                     <div class="form-group">
-                        <label for="data-disponivel-servico">Data Disponível</label>
-                        <input type="date" id="data-disponivel-servico" class="form-control" required>
+                        <label for="nome-cadastro">Nome</label>
+                        <input type="text" id="nome-cadastro" class="form-control" required>
                     </div>
                     <div class="form-group">
-                        <label for="imagem-servico">Imagem do Serviço</label>
-                        <input type="file" id="imagem-servico" class="form-control">
+                        <label for="email-cadastro">Email</label>
+                        <input type="email" id="email-cadastro" class="form-control" required>
                     </div>
-                    <button type="button" class="btn btn-primary" onclick="cadastrarNovoServico()">Cadastrar</button>
+                    <div class="form-group">
+                        <label for="senha-cadastro">Senha</label>
+                        <input type="password" id="senha-cadastro" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="telefone-cadastro">Telefone</label>
+                        <input type="text" id="telefone-cadastro" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="cep-cadastro">CEP</label>
+                        <input type="text" id="cep-cadastro" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="numero-endereco-cadastro">Número</label>
+                        <input type="text" id="numero-endereco-cadastro" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="complemento-endereco-cadastro">Complemento</label>
+                        <input type="text" id="complemento-endereco-cadastro" class="form-control">
+                    </div>
+                    <!-- Campos específicos para profissionais -->
+                    <div id="profissional-campos" class="hidden">
+                        <div class="form-group">
+                            <label for="especialidade-cadastro">Especialidade</label>
+                            <input type="text" id="especialidade-cadastro" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="registro-profissional-cadastro">Registro Profissional</label>
+                            <input type="text" id="registro-profissional-cadastro" class="form-control">
+                        </div>
+                    </div>
+                    <!-- Campos específicos para clientes -->
+                    <div id="cliente-campos">
+                        <div class="form-group">
+                            <label for="cpf-cadastro">CPF</label>
+                            <input type="text" id="cpf-cadastro" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="nascimento-cadastro">Data de Nascimento</label>
+                            <input type="date" id="nascimento-cadastro" class="form-control">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                        <button type="submit" class="btn btn-primary">Cadastrar</button>
+                    </div>
                 </form>
             </div>
-             <!-- Apresentacao de Avaliacoes e parceiros do aplicativo-->
-            <div id="Reviews" class="tela collapse">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-8">
-                        <h3>Avaliações</h3>
-                        <div id="reviews-list" class="list-group">
-                            <!-- Avaliações serão carregadas aqui -->
-                        </div>
-                        </div>
-                        <div class="col-md-4">
-                        <h4>Links Patrocinados</h4>
-                        <div class="list-group">
-                            <a href="https://junhaumhayden.github.io/publish/" class="list-group-item list-group-item-action">Landingpage</a>
-                            <a href="https://junhaumhayden.github.io/publish/flexturismo.html" class="list-group-item list-group-item-action">FlexTurismo</a>
-                            <a href="https://junhaumhayden.github.io/publish/gatinhos.html" class="list-group-item list-group-item-action">Ver Gatinhos Fofinhos</a>
-                            <a href="https://arthurs08.github.io/ChefListPrj/" class="list-group-item list-group-item-action">ChefList</a>
-                        </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-     <!-- ###### Apresentacao da area restrita a cliente ####### -->
-        <div id="cliente-page" class="hidden">
-          <!-- Botão para alternar a visibilidade -->
-            <!-- Menu de Navegação -->
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <div class="container-fluid">
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#userNav" aria-controls="userNav" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="userNav">
-                        <div class="navigation d-flex justify-content-around mb-4">
-                            <button type="button" class="btn btn-primary" onclick="navega('home-client')">
-                                <i class="fa-solid fa-home"></i> Home
-                            </button>
-                            <button type="button" class="btn btn-primary" onclick="navega('update-data-client')">
-                                <i class="fa-solid fa-concierge-bell"></i> Atualizar Dados
-                            </button>
-                            <!-- <button type="button" class="btn btn-primary" onclick="navega('appointment-history-client')">
-                                <i class="fa-solid fa-file"></i> Historico de Agendamentos
-                            </button> -->
-                            <button type="button" class="btn btn-primary" onclick="navega('Reviews-client')">
-                                <i class="fa-solid fa-star"></i> Avaliações
-                            </button>
-                            <button type="button" class="btn btn-primary" onclick="logout()">
-                                <i class="fa-solid fa-right-from-bracket"></i> Sair
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </nav>
-            <!-- Elemento que será alternado -->
-            <!-- Apresentacao Elemento Home -->
-            <div id="home-client" class="tela show">
-                <h3>HOME</h3>
-                <h2>Bem-vindo, <span id="cliente-name"></span></h2>
-                <button class="btn btn-secondary" onclick="navega('update-data-client')">Atualizar Dados</button>
-                <!-- <button class="btn btn-secondary" onclick="navega('new-service')">Consultar Agendamentos</button> -->
-                
-                <h4>Agendamentos Programados</h4>
-                    <div class="row" id="scheduled-appointments-client"></div>
-                    <div id="error-message" class="error-message"></div>
-                    <!-- Conteúdo da página de apresentação -->
-            </div>
-            <!-- Apresentacao Elemento Atualizar Dados -->
-            <div id="update-data-client" class="tela collapse">
-                <h3>Atualizar Dados</h3>
-                    <form id="update-data-form-client">
-                        <fieldset>
-                            <legend> 
-                                Cadastro de Dados Pessoais
-                            </legend>
-                            <div class="form-group">
-                                <label for="nome">Nome</label>
-                                <input type="text" id="nome-client" class="form-control" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="email">Email</label>
-                                <input type="text" id="email-client" class="form-control" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="senha">Senha</label>
-                                <input type="password" id="senha-client" class="form-control" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="cpf">CPF</label>
-                                <input type="text" id="cpf" class="form-control">
-                            </div>
-                            <div class="form-group">
-                                <label for="nascimento">Data de Nascimento</label>
-                                <input type="date" id="nascimento" class="form-control">
-                            </div>
-                        
-                        </fieldset>
-                        <fieldset>
-                            <legend> 
-                                Cadastro de dados de Endereço
-                            </legend>
-                            <div class="form-group">
-                                <label for="telefone">Telefone</label>
-                                <input type="text" id="telefone-client" class="form-control" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="cep">CEP</label>
-                                <input type="text" id="cep-client" class="form-control" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="numero-endereco">Número</label>
-                                <input type="text" id="numero-endereco-client" class="form-control" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="complemento-endereco">Complemento</label>
-                                <input type="text" id="complemento-endereco-client" class="form-control">
-                            </div>
-                        </fieldset>
-                        <button type="submit" class="btn btn-primary">Atualizar Dados</button>
-                        
-                        <div class="form-group">
-                            <label for="imagem-usuario-input">Imagem de Perfil</label>
-                            <input type="file" id="imagem-usuario-input" class="form-control">
-                            <button type="button" id="upload-imagem-btn" class="btn btn-secondary">Enviar Imagem</button>
-                        </div>
-                    </form>
-                    <img id="imagem-usuario-client" src="" alt="Imagem do Usuário" class="img-thumbnail mt-3">
-            </div>
-            <!-- Apresentacao de Avaliacoes e parceiros do aplicativo-->
-            <div id="Reviews-client" class="tela collapse">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-8">
-                        <h3>Avaliações</h3>
-                        <div id="reviews-list-client" class="list-group">
-                            <!-- Avaliações serão carregadas aqui -->
-                        </div>
-                        </div>
-                        <div class="col-md-4">
-                        <h4>Links Patrocinados</h4>
-                        <div class="list-group">
-                            <a href="https://junhaumhayden.github.io/publish/" class="list-group-item list-group-item-action">Landingpage</a>
-                            <a href="https://junhaumhayden.github.io/publish/flexturismo.html" class="list-group-item list-group-item-action">FlexTurismo</a>
-                            <a href="https://junhaumhayden.github.io/publish/gatinhos.html" class="list-group-item list-group-item-action">Ver Gatinhos Fofinhos</a>
-                            <a href="https://arthurs08.github.io/ChefListPrj/" class="list-group-item list-group-item-action">ChefList</a>
-                        </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
-    <!-- Modal de Cadastro -->
-    <div class="modal fade" id="cadastroModal" tabindex="-1" aria-labelledby="cadastroModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="cadastroModalLabel">Cadastro</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <form id="cadastro-form">
-                        <div class="form-group">
-                            <label for="tipo-usuario">Tipo de Usuário</label>
-                            <select id="tipo-usuario" class="form-control" required>
-                                <option value="cliente" selected>Cliente</option>
-                                <option value="profissional">Profissional</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="nome-cadastro">Nome</label>
-                            <input type="text" id="nome-cadastro" class="form-control" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email-cadastro">Email</label>
-                            <input type="email" id="email-cadastro" class="form-control" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="senha-cadastro">Senha</label>
-                            <input type="password" id="senha-cadastro" class="form-control" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="telefone-cadastro">Telefone</label>
-                            <input type="text" id="telefone-cadastro" class="form-control" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="cep-cadastro">CEP</label>
-                            <input type="text" id="cep-cadastro" class="form-control" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="numero-endereco-cadastro">Número</label>
-                            <input type="text" id="numero-endereco-cadastro" class="form-control" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="complemento-endereco-cadastro">Complemento</label>
-                            <input type="text" id="complemento-endereco-cadastro" class="form-control">
-                        </div>
-                        <!-- Campos específicos para profissionais -->
-                        <div id="profissional-campos" class="hidden">
-                            <div class="form-group">
-                                <label for="especialidade-cadastro">Especialidade</label>
-                                <input type="text" id="especialidade-cadastro" class="form-control">
-                            </div>
-                            <div class="form-group">
-                                <label for="registro-profissional-cadastro">Registro Profissional</label>
-                                <input type="text" id="registro-profissional-cadastro" class="form-control">
-                            </div>
-                        </div>
-                        <!-- Campos específicos para clientes -->
-                        <div id="cliente-campos">
-                            <div class="form-group">
-                                <label for="cpf-cadastro">CPF</label>
-                                <input type="text" id="cpf-cadastro" class="form-control">
-                            </div>
-                            <div class="form-group">
-                                <label for="nascimento-cadastro">Data de Nascimento</label>
-                                <input type="date" id="nascimento-cadastro" class="form-control">
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-                            <button type="submit" class="btn btn-primary">Cadastrar</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
+</div>
     <footer>
         <div class="footer-container">
             <div class="logo">
@@ -634,11 +619,12 @@
             document.getElementById('professional-page').classList.add('hidden');
             document.getElementById('cliente-page').classList.add('hidden');
             document.getElementById('login-page').classList.remove('hidden');
-            window.location.href = "index.html";
+            window.location.href = "indexx.html";
         }
 
         // Autenticação e redirecionamento
         async function authenticate(email, password) {
+            console.log('Autenticando...');
             try {
                 const response = await axios.post('http://localhost:5000/api/usuarios/login', { email, senha: password });
                 const user = response.data;
@@ -675,6 +661,7 @@
         }
         // Função para realizar o login
         function login() {
+            console.log('Login');
             // Captura o valor do campo de email
             const email = document.getElementById('login-email').value;
             // Captura o valor do campo de senha

@@ -24,44 +24,117 @@
 
     </head>
     <body>
-        <header>
-            <h1>🌐 ComfortAid 🐘</h1>
-        </header>
-         <!-- barra de navegacao da pagina -->
-        <nav>
-            <ul>
-                <li><a href="../">Início</a></li>
-                <li><a href="comfortaid_user_env.html">Login</a></li>
-                <li><a href="tel:+5548988900001">Contato</a></li>
-            </ul>
+        <!-- barra de navegacao da Aplicação Navbar Bootstrap -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-secondary">
+            <!-- navbar-expand-lg para exibir o menu em telas maiores e colapsá-lo em telas pequenas. -->
+            <div class="container-fluid">
+                
+                <!-- Botão Hambúrguer -->
+                <button class="navbar-toggler btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#menuNavbar" aria-controls="menuNavbar" aria-expanded="false" aria-label="Toggle navigation">
+                    <!-- navbar-toggler usa um data-bs-toggle="collapse" para funcionar sem precisar de JavaScript adicional. -->
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Logo ou Nome do site -->
+                <a class="navbar-brand ms-3 text-light fw-bold" href="#">ComfortAid</a>
+
+                <!-- Itens do Menu -- Botão para alternar a visibilidade -->
+                <div class="collapse navbar-collapse" id="menuNavbar">
+                    
+                    <ul class="navbar-nav ms-auto bg-secondary">
+                        <li class="nav-item">
+                            <button class="btn btn-secondary me-2" onclick="navega('home')">
+                                <i class="fa-solid fa-home"></i> Home
+                            </button>
+                        </li>
+                        <li class="nav-item">
+                            <button class="btn btn-secondary me-2" onclick="navega('services')">
+                                <i class="fa-solid fa-concierge-bell"></i> Serviços
+                            </button>
+                        </li>
+                        <li class="nav-item">
+                            <button class="btn btn-secondary me-2" onclick="navega('profiles')">
+                                <i class="fa-solid fa-file"></i> Profissionais
+                            </button>
+                        </li>
+                        <li class="nav-item">
+                            <button class="btn btn-secondary me-3" onclick="navega('reviews')">
+                                <i class="fa-solid fa-star"></i> Avaliações
+                            </button>
+                        </li>
+                    </ul>
+
+                    <!-- Link de Contato -->
+                    <a href="tel:+5548988900001" class="btn btn-light me-3">
+                        <i class="fa-solid fa-phone"></i> Contato
+                    </a>
+
+                    <!-- Link de Login -->
+                    <a href="comfortaid_user_env.html" class="btn btn-primary">
+                        <i class="fa-solid fa-sign-in-alt"></i> Login
+                    </a>
+                </div>
+            </div>
         </nav>
-         <!-- Botão para alternar a visibilidade -->
-        <nav class="navigation">
-            <button type="button" class="btn btn-primary" onclick="navega('home')">
-                <i class="fa-solid fa-home"></i>
-                Home
-            </button>
-            <button type="button" class="btn btn-primary" onclick="navega('services')">
-                <i class="fa-solid fa-concierge-bell"></i>
-                Serviços
-            </button>
-            <button type="button" class="btn btn-primary" onclick="navega('profiles')">
-                <i class="fa-solid fa-file"></i>
-                Profissionais
-            </button>
-            <button type="button" class="btn btn-primary" onclick="navega('Reviews')">
-                <i class="fa-solid fa-star"></i>
-                Avaliações
-            </button>
-        </nav>
-         <!-- Elemento que será alternado -->
+         <!-- Itens do Menu -- Elemento que será alternado -->
          <!-- Apresentacao Elemento Home -->
         <div id="home" class="tela show">
-            <h3>Bem-vindo ao ComfortAid</h3>
-            <!-- Conteúdo da página de apresentação -->
-            <div id="presentation-content"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8">
+                        <h3>Bem-vindo ao ComfortAid</h3>
+                        <!-- Conteúdo da página de apresentação -->
+                        <div id="presentation-content"></div>
+                    </div>
+                    <div class="col-md-4">
+                        <aside class="ad-section">
+                            <h2>Anúncios</h2>
+                            <div class="ad-list">
+                                <!-- Card 4 -->
+                                <div class="card"> 
+                                    <div class="ad-card">
+                                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQtLRjfzWzhL9UimIixsWB-DKOeRub2CFgC29qHsR7PXxF-Inptit722udqVMesTLsYbJl6Fw&s" alt="ChefList" class="ad-image">
+                                        <div class="ad-text">
+                                            <a href="https://arthurs08.github.io/ChefListPrj/" class="ad-link">ChefList</a>
+                                        </div>
+                                    </div>
+                                </div> 
+                                <!-- Card 1 -->
+                                <div class="card">
+                                    <div class="ad-card">
+                                        <img src="./assets/img/logo.gif" alt="Landingpage" class="ad-image card-img img-fluid">
+                                        <div class="ad-text">
+                                            <a href="https://junhaumhayden.github.io/publish/" class="ad-link">Landingpage</a>
+                                        </div>
+                                    </div>
+                                </div>
+                        
+                                <!-- Card 2 -->
+                                <div class="card">
+                                    <div class="ad-card">
+                                        <img src="./assets/img/1-quem-somos.png" alt="FlexTurismo" class="ad-image">
+                                        <div class="ad-text">
+                                            <a href="https://junhaumhayden.github.io/publish/flexturismo.html" class="ad-link">FlexTurismo</a>
+                                        </div>
+                                    </div>
+                                </div>    
+                        
+                                <!-- Card 3 -->
+                                <div class="card">
+                                    <div class="ad-card">
+                                        <img src="https://img.freepik.com/vetores-gratis/gato-bonito-com-ilustracao-dos-desenhos-animados-do-amor-sinal-mao-conceito-de-natureza-animal-isolado-estilo-flat-cartoon_138676-3419.jpg?w=1480&t=st=1724200872~exp=1724201472~hmac=de3b4f39c0ead5885aecdb0ddfe10c41815b69e81d8b9a53a390d50bd5533998" alt="Gatinhos Fofinhos" class="ad-image">
+                                        <div class="ad-text">
+                                            <a href="https://junhaumhayden.github.io/publish/gatinhos.html" class="ad-link">Ver Gatinhos Fofinhos</a>
+                                        </div>
+                                    </div>
+                                </div>        
+                            </div>
+                        </aside>
+                    </div>
+                </div>
+            </div>
         </div>
-            <!-- Apresentacao Elemento Servicos com axios-->
+        <!-- Apresentacao Elemento Servicos com axios-->
         <div id="services" class="tela collapse">
             <div class="container-services">
                 <div class="search-bar mb-4">
@@ -126,7 +199,7 @@
         </div>
         
         <!-- Apresentacao de Avaliacoes e parceiros do aplicativo-->
-        <div id="Reviews" class="tela collapse">
+        <div id="reviews" class="tela collapse">
             <div class="container">
                 <div class="row">
                     <div class="col-md-8">
@@ -137,7 +210,7 @@
                     </div>
                     <div class="col-md-4">
                         <h4>Links Patrocinados</h4>
-                        <aside class="ad-sections">
+                        <aside class="ad-section">
                             <h2>Anúncios</h2>
                             <div class="ad-list">
                                 <!-- Card 4 -->
@@ -788,7 +861,7 @@
             // Adiciona o evento de clique ao botão de profissionais
             document.querySelector('button[onclick="navega(\'profiles\')"]').addEventListener('click', carregarProfissionais);
             // Carrega as avaliações ao abrir a aba Reviews
-            document.querySelector('button[onclick="navega(\'Reviews\')"]').addEventListener('click', carregarAvaliacoes);
+            document.querySelector('button[onclick="navega(\'reviews\')"]').addEventListener('click', carregarAvaliacoes);
             
             // Adiciona o evento de clique aos cards de serviço
             document.getElementById('service-list').addEventListener('click', function(event) {
