@@ -154,10 +154,10 @@
             <div id="schedule-form">
                 <h4>Agendar Serviço</h4>
                 <form id="agendamento-form">
-                    <div class="mb-3">
+                    <!-- <div class="mb-3">
                         <label for="cliente-id" class="form-label">ID do Cliente</label>
                         <input type="number" class="form-control" id="cliente-id" required>
-                    </div>
+                    </div> -->
                     <div class="mb-3">
                         <label for="data-hora" class="form-label">Data e Hora</label>
                         <input type="datetime-local" class="form-control" id="data-hora" required>
@@ -187,11 +187,11 @@
                         <label for="cliente-id" class="form-label">ID do Cliente</label>
                         <input type="number" class="form-control" id="cliente-id" required>
                     </div>
-                    <div class="mb-3">
+                    <!-- <div class="mb-3">
                         <label for="data-hora" class="form-label">Data e Hora</label>
                         <input type="datetime-local" class="form-control" id="data-hora" required>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Agendar</button>
+                    </div> -->
+                    <!-- <button type="submit" class="btn btn-primary">Agendar</button> -->
                     <button type="button" class="btn btn-secondary" onclick="navega('profiles')">Voltar</button>
                 </form>
                 <div id="schedule-message" class="mt-3"></div>
@@ -381,6 +381,7 @@
                             `;
                         
                         document.getElementById('service-details-content').innerHTML = detailsContent;
+                        document.getElementById('agendamento-form').dataset.servicoId = servico.id;
 
                         const apiImagensUrl = `http://localhost:5000/imagens/servico/${servicoId}`;
                         axios.get(apiImagensUrl)
@@ -596,30 +597,53 @@
                 return col;
             }
             
-
             // Função para enviar o agendamento
             document.getElementById('agendamento-form').addEventListener('submit', function(event) {
                 event.preventDefault();
+
+                // Recupera o cliente da sessão
+                const cliente = JSON.parse(sessionStorage.getItem('user'));
+                
+            
+
+                // Verifica se há cliente autenticado
+                if (!cliente) {
+                    alert('Você precisa estar autenticado para realizar um agendamento.');
+                    window.location.href = 'comfortaid_user_env.html';
+                    return;
+                }
+
+                // Verifica se o usuário autenticado é do tipo cliente
+                if (cliente.tipo !== 'cliente') {
+                    document.getElementById('schedule-message').textContent = 'Apenas clientes podem realizar um agendamento.';
+                    return;
+                }
+
                 const servicoId = this.dataset.servicoId;
-                const clienteId = document.getElementById('cliente-id').value;
+                console.log('Serviço ID:', servicoId);
                 const dataHora = document.getElementById('data-hora').value;
+                console.log('Data e Hora:', dataHora);
 
                 const agendamento = {
-                    cliente: { id: clienteId },
+                    cliente: { id: cliente.id },
                     servico: { id: servicoId },
                     dataHora: dataHora
                 };
-
+                console.log('Agendamento:', agendamento);
+                console.log('Preparando para enviar o agendamento...');
                 axios.post('http://localhost:5000/agendamentos', agendamento)
                     .then(response => {
-                        document.getElementById('schedule-message').textContent = 'Agendamento realizado com sucesso!';
+                        alert('Agendamento realizado com sucesso! Aguarde a confirmação do profissional.');
+                        window.location.href = 'comfortaid_user_env.html';
+                        
                     })
                     .catch(error => {
                         console.error('Erro ao realizar o agendamento:', error);
-                        document.getElementById('schedule-message').textContent = 'Ocorreu um erro ao realizar o agendamento. Tente novamente mais tarde.';
+                        alert('Ocorreu um erro ao realizar o agendamento. Tente novamente mais tarde.');
+                        
                     });
             });
-            
+
             // Função para criar o card do serviço
             function criarCardServicos(servico) {
                 const col = document.createElement('div');
@@ -717,8 +741,6 @@
 
                 return col;
             }
-
-
 
             // Função para carregar os serviços ao clicar na aba Servicos
             function carregarServicos() {

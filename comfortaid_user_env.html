@@ -36,7 +36,7 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0 bg-light">
                     <li class="nav-item">
-                        <a class="nav-link" href="./index.html"">Início</a>
+                        <a class="nav-link" href="index.html">Início</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#" onclick="navega('home')">Voltar</a>
@@ -46,12 +46,12 @@
                     </li>
                 </ul>
                 <!-- Link de Contato -->
-            <a href="tel:+5548988900001" class="btn btn-light me-3">
+            <a href="tel:+5548988900001" class="btn btn-primary me-3">
                 <i class="fa-solid fa-phone"></i> Contato
             </a>
 
-            <!-- Link de Login
-            <a href="comfortaid_user_env.html" class="btn btn-primary">
+            <!-- Link de Login -->
+            <!-- <a href="comfortaid_user_env.html" class="btn btn-primary">
                 <i class="fa-solid fa-sign-in-alt"></i> Login
             </a> -->
             </div>
@@ -135,6 +135,8 @@
         <div id="home" class="tela show">
             <h3>HOME</h3>
             <h2>Bem-vindo, <span id="professional-name"></span></h2>
+            
+            
             <h4>Agendamentos Programados</h4>
                 <div class="row" id="scheduled-appointments"></div>
                 <div id="error-message" class="error-message"></div>
@@ -143,7 +145,7 @@
 
                 <div class="search-bar mb-4">
                     <button class="btn btn-secondary" onclick="navega('update-data')"><i class="fa-sync fa-solid"></i> Atualizar Dados</button>
-                    <button class="btn btn-secondary" onclick="navega('new-service')"><i class="fa-solid fa-plus"></i> Novo Serviço</button>
+            <button class="btn btn-secondary" onclick="navega('new-service')"><i class="fa-solid fa-plus"></i> Novo Serviço</button>
                 </div>
         </div>
         <!-- Apresentacao Elemento Atualizar Dados -->
@@ -167,20 +169,19 @@
                             <input type="password" id="senha" class="form-control" required>
                         </div>
                         <!-- Campos específicos para profissionais -->
-                        <div id="profissional-fields" class="hidden">
-                            <div class="form-group">
-                                <label for="especialidade">Especialidade</label>
-                                <input type="text" id="especialidade" class="form-control">
-                            </div>
-                            <div class="form-group">
-                                <label for="registro-profissional">Registro Profissional</label>
-                                <input type="text" id="registro-profissional" class="form-control">
-                            </div>
+                    <div id="profissional-fields" class="hidden">
+                        <div class="form-group">
+                            <label for="especialidade">Especialidade</label>
+                            <input type="text" id="especialidade" class="form-control">
                         </div>
+                        <div class="form-group">
+                            <label for="registro-profissional">Registro Profissional</label>
+                            <input type="text" id="registro-profissional" class="form-control">
+                        </div>
+                    </div>
                     <!-- Campos específicos para clientes -->
-                        <div id="cliente-fields" class="hidden">
-                            <!-- retirados por inconsistencia -->
-                        </div>
+                    <div id="cliente-fields" class="hidden">
+                    </div>
                     </fieldset>
                     <fieldset>
                         <legend> 
@@ -605,6 +606,7 @@
         // Salva usuário na sessão
         function saveSession(user) {
             sessionStorage.setItem('user', JSON.stringify(user));
+            // Armazena os dados no sessionStorage
         }
 
         // Recupera usuário da sessão
