@@ -18,7 +18,7 @@
 
 > A aplicação pode ser acessada pela [Web page](https://junhaumhayden.github.io/ComfortAid_APP_Project/)
 
-> Um pequeno um vídeo de demonstração do aplicativo pode ser visualizado no [youtube](https://youtu.be/bbU-9l1c2Ss)
+> Um pequeno um vídeo de demonstração do aplicativo pode ser visualizado no [odysee](https://odysee.com/ComfortAid_App:2?r=CYtiAyuSYZPVsUt53EfSEgfPJCaJULPb)
 
 ### 📌 Sobre o Projeto
 
