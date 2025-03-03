@@ -569,10 +569,10 @@
                 let response;
                 if (tipoUsuario === 'profissional') {
                     // Enviar dados para a API de profissionais
-                    response = await axios.post('http://localhost:5000/profissionais', dadosCadastro);
+                    response = await axios.post('https://comfortaidapiproject-production.up.railway.app/profissionais', dadosCadastro);
                 } else {
                     // Enviar dados para a API de clientes
-                    response = await axios.post('http://localhost:5000/clientes', dadosCadastro);
+                    response = await axios.post('https://comfortaidapiproject-production.up.railway.app/clientes', dadosCadastro);
                 }
 
                 // Verificar se a requisição foi bem-sucedida
@@ -627,7 +627,7 @@
         async function authenticate(email, password) {
             console.log('Autenticando...');
             try {
-                const response = await axios.post('http://localhost:5000/api/usuarios/login', { email, senha: password });
+                const response = await axios.post('https://comfortaidapiproject-production.up.railway.app/api/usuarios/login', { email, senha: password });
                 const user = response.data;
                 if (user) {
                     saveSession(user);
@@ -700,7 +700,7 @@
         async function fetchAppointmentsProfessional(professionalId) {
             try {
                 // Recupera os agendamentos do profissional
-                const response = await axios.get(`http://localhost:5000/agendamentos/profissional/${professionalId}`);
+                const response = await axios.get(`https://comfortaidapiproject-production.up.railway.app/agendamentos/profissional/${professionalId}`);
                 const appointments = response.data;
 
                 // Limpa a lista de agendamentos
@@ -736,7 +736,7 @@
                                 <div class="card">
                                     <div class="card-body">
                                         <div class="d-flex align-items-center mb-3">
-                                            <img src="http://localhost:5000/imagens/usuario/foto/${appointment.cliente.id}" 
+                                            <img src="https://comfortaidapiproject-production.up.railway.app/imagens/usuario/foto/${appointment.cliente.id}" 
                                                 alt="${appointment.cliente.nome}" 
                                                 class="rounded-circle me-3" 
                                                 width="50" 
@@ -771,7 +771,7 @@
         async function showAppointmentDetails(appointmentId) {
             try {
                 // Recupera os detalhes do agendamento
-                const response = await axios.get(`http://localhost:5000/agendamentos/${appointmentId}`);
+                const response = await axios.get(`https://comfortaidapiproject-production.up.railway.app/agendamentos/${appointmentId}`);
                 const appointment = response.data;
 
                 // Recupera o endereço do cliente usando o CEP
@@ -841,7 +841,7 @@
         // Função para atualizar o status do agendamento
         async function updateAppointmentStatus(appointmentId, status) {
             try {
-                const response = await axios.put(`http://localhost:5000/agendamentos/status/${appointmentId}`, {
+                const response = await axios.put(`https://comfortaidapiproject-production.up.railway.app/agendamentos/status/${appointmentId}`, {
                     status: status},
                 {
                     headers: {
@@ -869,7 +869,7 @@
         async function fetchAppointmentsClient(clienteId) {
             try {
                 // Recupera os agendamentos do cliente
-                const response = await axios.get(`http://localhost:5000/agendamentos/cliente/${clienteId}`);
+                const response = await axios.get(`https://comfortaidapiproject-production.up.railway.app/agendamentos/cliente/${clienteId}`);
                 const appointments = response.data;
 
                 // Limpa a lista de agendamentos
@@ -905,7 +905,7 @@
                                 <div class="card">
                                     <div class="card-body">
                                         <div class="d-flex align-items-center mb-3">
-                                            <img src="http://localhost:5000/imagens/usuario/foto/${appointment.servico.profissional.id}" 
+                                            <img src="https://comfortaidapiproject-production.up.railway.app/imagens/usuario/foto/${appointment.servico.profissional.id}" 
                                                 alt="${appointment.servico.profissional.nome}" 
                                                 class="rounded-circle me-3" 
                                                 width="50" 
@@ -939,7 +939,7 @@
         async function showAppointmentDetailsClient(appointmentId) {
             try {
                 // Recupera os detalhes do agendamento
-                const response = await axios.get(`http://localhost:5000/agendamentos/${appointmentId}`);
+                const response = await axios.get(`https://comfortaidapiproject-production.up.railway.app/agendamentos/${appointmentId}`);
                 const appointment = response.data;
 
                 // Recupera o endereço do cliente usando o CEP
@@ -1013,8 +1013,8 @@
         }
 
         const apiUrl = user.tipo === "profissional" 
-            ? `http://localhost:5000/api/usuarios/${user.id}` 
-            : `http://localhost:5000/api/usuarios/${user.id}`;
+            ? `https://comfortaidapiproject-production.up.railway.app/api/usuarios/${user.id}` 
+            : `https://comfortaidapiproject-production.up.railway.app/api/usuarios/${user.id}`;
 
         try {
             const response = await axios.get(apiUrl);
@@ -1034,7 +1034,7 @@
                 
                 // Exibir a imagem do usuário
                 const imagemUsuario = document.getElementById('imagem-usuario');
-                imagemUsuario.src = `http://localhost:5000/imagens/usuario/foto/${user.id}`;
+                imagemUsuario.src = `https://comfortaidapiproject-production.up.railway.app/imagens/usuario/foto/${user.id}`;
             } else if (user.tipo === "cliente") {
                 document.getElementById('nome-client').value = userData.nome;
                 document.getElementById('email-client').value = userData.email;
@@ -1049,7 +1049,7 @@
                 // const updateDataForm = document.getElementById('update-data-form-client');
                 // Exibir a imagem do usuário
                 const imagemUsuario = document.getElementById('imagem-usuario-client');
-                imagemUsuario.src = `http://localhost:5000/imagens/usuario/foto/${user.id}`;
+                imagemUsuario.src = `https://comfortaidapiproject-production.up.railway.app/imagens/usuario/foto/${user.id}`;
             }
 
             
@@ -1095,7 +1095,7 @@
                     formData.append('file', imagem);
 
                     try {
-                        await axios.post(`http://localhost:5000/imagens/usuario/${user.id}`, formData, {
+                        await axios.post(`https://comfortaidapiproject-production.up.railway.app/imagens/usuario/${user.id}`, formData, {
                             headers: {
                                 'Content-Type': 'multipart/form-data'
                             }
@@ -1142,7 +1142,7 @@
             };
 
             try {
-                const response = await axios.post('http://localhost:5000/servicos', novoServico);
+                const response = await axios.post('https://comfortaidapiproject-production.up.railway.app/servicos', novoServico);
                 if (response.status === 201) {
                     alert('Serviço cadastrado com sucesso!');
                     const servicoId = response.data.id;
@@ -1153,7 +1153,7 @@
                         const formData = new FormData();
                         formData.append('file', imagemServico);
 
-                        await axios.post(`http://localhost:5000/imagens/servico/${servicoId}`, formData, {
+                        await axios.post(`https://comfortaidapiproject-production.up.railway.app/imagens/servico/${servicoId}`, formData, {
                             headers: {
                                 'Content-Type': 'multipart/form-data'
                             }
@@ -1173,7 +1173,7 @@
         // Função para carregar as avaliações
         function carregarAvaliacoes() {
             if (getSession().tipo === 'profissional') {
-                const apiAvaliacoesUrl = 'http://localhost:5000/avaliacoes';
+                const apiAvaliacoesUrl = 'https://comfortaidapiproject-production.up.railway.app/avaliacoes';
             axios.get(apiAvaliacoesUrl)
                 .then(response => {
                 const reviewsList = document.getElementById('reviews-list');
@@ -1198,7 +1198,7 @@
                 });
                 
             }else{
-            const apiAvaliacoesUrl = 'http://localhost:5000/avaliacoes';
+            const apiAvaliacoesUrl = 'https://comfortaidapiproject-production.up.railway.app/avaliacoes';
             axios.get(apiAvaliacoesUrl)
                 .then(response => {
                 const reviewsList = document.getElementById('reviews-list-client');
