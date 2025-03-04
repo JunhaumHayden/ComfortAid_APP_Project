@@ -4,7 +4,7 @@
  * isso garante que a aplicação será atualizada nos clientes onde já exista
  * um cache salvo
  */
-const version = 1
+const version = 2
 const cachename = 'comfortaid-v'+version
 
 /**
